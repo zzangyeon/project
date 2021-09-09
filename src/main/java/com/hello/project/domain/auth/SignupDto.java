@@ -1,6 +1,6 @@
-package com.hello.project.dto;
+package com.hello.project.domain.auth;
 
-import com.hello.project.domain.User;
+import com.hello.project.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

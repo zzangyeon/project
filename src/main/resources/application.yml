@@ -21,7 +21,7 @@ spring:
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: update #update - ????? ??? ????? ??. /create - ?? ??? drop ? ??? ?? ??? /none - ??? ??
+      ddl-auto: update
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
@@ -29,12 +29,19 @@ spring:
   servlet:
     multipart:
       enabled: true
-      max-file-size: 2MB  #??? ???? ???? ??!
+      max-file-size: 2MB
 
-#  security:
-#    user:
-#      name: test
-#      password: 1234
+  security:
+    user:
+      name: test
+      password: 1234
+
+  devtools:
+    restart:
+      enabled: true
+    livereload:
+      enabled: true
+
 #
 #    oauth2:
 #      client:
@@ -42,7 +49,7 @@ spring:
 #          facebook:
 #            client-id: 600275614291536
 #            client-secret: 286a3327bd82177c3e1eb7d65865da1a
-#            scope: #????? ??????? ???!
+#            scope:
 #            - public_profile
 #            - email
 #

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class="article-container">
+
+        <h1 th:text="${article.title}"></h1>
+
+        <div>
+            <span th:text="${article.user.username}"></span>
+            <span th:text="${article.createdDate}"></span>
+        </div>
+
+        <div>
+        <img th:src="|/thumbnail/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/zz.jpg'">
+        </div>
+
+        <div>
+            <p th:text="${article.content}"></p>
+        </div>
+        
+    </div>
+    
+    
+
+</body>
+</html>
+
+<style>
+
+    .article-container{
+        display: flex;
+        margin: auto;
+        border: 2px solid blue;
+        width: 50%;
+        flex-flow:column wrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+
+</style>

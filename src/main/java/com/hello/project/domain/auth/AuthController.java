@@ -1,8 +1,6 @@
-package com.hello.project.controller;
+package com.hello.project.domain.auth;
 
-import com.hello.project.domain.User;
-import com.hello.project.dto.SignupDto;
-import com.hello.project.service.AuthService;
+import com.hello.project.domain.user.User;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -40,8 +38,7 @@ public class AuthController {
 			User userEntity = authService.회원가입(user);
 			System.out.println(userEntity);
 			return "auth/signin";
-		
-		 
+
 	}
 	
 }

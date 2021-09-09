@@ -1,8 +1,8 @@
 package com.hello.project;
 
-import com.hello.project.domain.User;
-import com.hello.project.domain.UserRepository;
-import com.hello.project.dto.SignupDto;
+import com.hello.project.domain.user.User;
+import com.hello.project.domain.user.UserRepository;
+import com.hello.project.domain.auth.SignupDto;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

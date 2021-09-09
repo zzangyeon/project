@@ -1,7 +1,7 @@
-package com.hello.project.service;
+package com.hello.project.domain.auth;
 
-import com.hello.project.domain.User;
-import com.hello.project.domain.UserRepository;
+import com.hello.project.domain.user.User;
+import com.hello.project.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -17,8 +17,7 @@ public class AuthService {
 	@Transactional
 	public User 회원가입(User user) {
 
-		String rawPassword = user.getPassword();
-		String encPassword = bCryptPasswordEncoder.encode(rawPassword);
+		String encPassword = bCryptPasswordEncoder.encode(user.getPassword());
 		user.setPassword(encPassword);
 		user.setRole("ROLE_USER");
 		User userEntity = userRepository.save(user);

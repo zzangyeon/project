@@ -2,10 +2,76 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>home</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
 </head>
 <body>
 
-<h1>home이다 이자식드랑~!~~~!!~</h1>
+    <h1>🎈🎁여긴 짱연월드입니당~~~~🍉💙</h1>
+    <br>
+    <br>
+    <div class="article-container">
+
+        <div class="item" th:each="article : ${articles}" >
+        <form class="form" th:id="${article.id}" action="/article" onclick="goSubmit(this.id)">
+            <input class="article-id" type="hidden" th:value="${article.id}" name="articleId" />
+            <img class="thumbnail" src="/thumbnail/zz.jpg" />
+
+            <div class="content">
+                <div class="article-title">
+                    <p th:text="${article.title}">제목</p>
+                </div>
+
+                <div class="discription">
+                    <p th:text="${article.discription}">요약</p>
+                </div>
+
+                <div class="createdDate">
+                    <p th:text="${article.createdDate}">생성날짜</p>
+                </div>
+
+                <div class="username">
+                        <p>by <b th:text="${article.user.username}">유저이름</b></p>
+                </div>
+            </div>
+        </form>
+        </div>
+
+    </div>
+
 </body>
 </html>
+
+<script>
+    function goSubmit(id){
+        $(`#${id}`).submit();
+    }
+</script>
+
+<style>
+
+    .article-container {
+        display:flex;
+        width: 93%;
+        margin: auto;
+        flex-flow:row wrap;
+        justify-content: center;
+        /*background-color: aquamarine;*/
+        /*height:100vh;*/
+        /*box-sizing:border-box;*/
+    }
+    .article-container  .item {
+        /*flex-basis:50%;*/
+        width: 390px;
+        margin: 20px;
+        border: 2px solid cornflowerblue;
+        /*box-sizing:border-box;*/
+        /*color:#fff;*/
+    }
+    .article-container .item .thumbnail {
+        width: 100%;
+    }
+
+</style>
