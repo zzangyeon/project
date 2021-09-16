@@ -5,6 +5,7 @@ import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
 import java.util.List;
@@ -17,8 +18,20 @@ public class ArticleDto {
     private String title;
     private String discription;
     private String content;
-    private User user;
-    private List<Comment> comments;
+    private MultipartFile thumbnail;
+//    private User user;
+//    private List<Comment> comments;
+
+
+    public Article toEntity(User user,String thumbnailUrl){
+        return Article.builder()
+                .title(title)
+                .content(content)
+                .discription(discription)
+                .thumbnailUrl(thumbnailUrl)
+                .user(user)
+                .build();
+    }
 
 
 }

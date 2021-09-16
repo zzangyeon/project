@@ -26,7 +26,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	//403코드 - 미승인 사용자.
 	http.csrf().disable();//csrf 토큰검사 비활성화
 	http.authorizeRequests()
-		.antMatchers("/","/user/**","/subscribe/**","/comment/**","/api/**").authenticated()//인증이 필요한 주소
+		.antMatchers("/user/**","/subscribe/**","/comment/**").authenticated()//인증이 필요한 주소
 		.anyRequest().permitAll()//그 외의 것들은 모두 허용
 		.and()
 		.formLogin()//인증이 필요한 저 url(위로세번째 줄)로 접근하면 폼로그인페이지로 옮길건데

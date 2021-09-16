@@ -53,8 +53,8 @@ spring:
 #            - public_profile
 #            - email
 #
-#file:
-#  path: C:\Study\photogram-prj\upload\
+file:
+  path: C:\Study\project\upload\
 
 
 

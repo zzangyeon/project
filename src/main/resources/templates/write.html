@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+</head>
+<body>
+
+    <div class="write-container">
+        <form style="display: flex; flex-direction: column; width: 100%" action="/write" method="post" enctype="multipart/form-data">
+            <input style="font-size: 40px; padding: 10px; margin: 20px 0 20px 0" type="text" name="title" placeholder="제목을 입력해주세요"/>
+            <textarea style="height: 400px; font-size: 30px" placeholder="글을 작성해주세요!" name="content"></textarea>
+                <br>
+                <br>
+            <input style="height: 80px" type="text" name="discription" placeholder="요약" >
+                <br>
+                <br>
+            <input type="file" name="thumbnail" style="font-size: 30px">
+                <br>
+                <br>
+           <button style="font-size: 30px">글 저장하기</button>
+        </form>
+    </div>
+
+</body>
+</html>
+
+<style>
+    .write-container{
+        display: flex;
+        margin: auto;
+        /*border: 2px solid coral;*/
+        width: 60%;
+        flex-flow:column wrap;
+        justify-content: center;
+        align-content: center;
+    }
+
+    .title{
+        font-size: 45px;
+        font-weight: bold;
+    }
+
+</style>

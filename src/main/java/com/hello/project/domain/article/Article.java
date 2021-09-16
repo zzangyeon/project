@@ -4,10 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hello.project.domain.time.TimeEntity;
 import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.user.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -28,13 +25,14 @@ public class Article extends TimeEntity {
     private String content;
     private String thumbnailUrl;
 
+    @JsonIgnoreProperties({"articles"})
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     private User user;
 
-    @JsonIgnoreProperties({"article"})
-    @OneToMany(mappedBy = "article")
-    private List<Comment> comments;
+//    @JsonIgnoreProperties({"article"})
+//    @OneToMany(mappedBy = "article",fetch = FetchType.EAGER)
+//    private List<Comment> comments;
 
 
 }

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+
+<header th:fragment="header1" th:if="${isLogin}">
+    <input type="hidden" th:value="${user.id}">
+    <div class="header">
+        <h1>짱연😋</h1>
+        <button class="button" onclick="location.href='/write'">새 글 작성</button>
+        <button class="button" onclick="location.href='/logout'">로그아웃</button>
+        <button class="button" onclick="location.href='/myblog'">내 블로그</button>
+        <h2 style="" th:text="${user.username}">방문자</h2>
+    </div>
+</header>
+
+<header th:fragment="header2" th:unless="${isLogin}" >
+    <div class="header">
+        <h1>짱연😋</h1>
+        <button class="button" onclick="location.href='/auth/signin'">로그인</button>
+        <h2>방문자</h2>
+    </div>
+</header>
+
+
+</body>
+</html>

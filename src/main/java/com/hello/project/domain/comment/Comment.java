@@ -1,12 +1,11 @@
 package com.hello.project.domain.comment;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.hello.project.domain.article.Article;
+import com.hello.project.domain.time.TimeEntity;
 import com.hello.project.domain.user.User;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
@@ -15,21 +14,23 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Data
 @Entity
-public class Comment {
+public class Comment extends TimeEntity {
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(length = 100, nullable = false)
+	@Column(length = 700, nullable = false)
 	private String content;
-	
+
 	@JsonIgnoreProperties({"articles"})
+	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name="user_id")
-	@ManyToOne(fetch = FetchType.LAZY)
 	private User user;
-	
-	@JoinColumn(name="article_id")
+
+	@JsonIgnore
 	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="article_id")
 	private Article article;
 
 }

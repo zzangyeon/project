@@ -6,18 +6,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-    <div class="header" th:replace="fragment/header :: header1" ></div>
-    <div class="header" th:replace="fragment/header :: header2"></div>
+<div class="header">
+    <h1>짱연월드👻👽👾</h1>
+    <button class="button" onclick="location.href='/auth/signin'">로그인</button>
+    <h2>방문객</h2>
+</div>
 
-    <div class="articleList-container">
-        <input type="hidden">
 
-        <div class="item" th:each="article : ${articles}" th:onclick="articleId('[[${article.id}]]')">
+<div class="articleList-container">
+
+    <div class="item" th:each="article : ${articles}" >
+        <form class="form" th:id="${article.id}" action="/article" onclick="goSubmit(this.id)">
             <input class="article-id" type="hidden" th:value="${article.id}" name="articleId" />
-
-            <div class="imgDiv">
-                <img class="thumbnail" th:src="|/thumbnail/${article.thumbnailUrl}|"/>
-            </div>
+            <img class="thumbnail" src="/thumbnail/zz.jpg" />
 
             <div class="content">
                 <div class="article-title">
@@ -33,17 +34,22 @@
                 </div>
 
                 <div class="username">
-                        <p>by <b th:text="${article.user.username}">유저이름</b></p>
+                    <p>by <b th:text="${article.user.username}">유저이름</b></p>
                 </div>
             </div>
-        </div>
-
+        </form>
     </div>
+
+</div>
 
 </body>
 </html>
 
-<script src="/js/home.js"></script>
+<script>
+    function goSubmit(id){
+        $(`#${id}`).submit();
+    }
+</script>
 
 <style>
     .header{
@@ -52,13 +58,13 @@
         width: 90%;
         margin: auto;
         justify-content: space-between;
-        align-items: center;
         /*border: 2px solid blueviolet;*/
     }
+
     .button{
-        font-size: 30px;
-        height: 50px;
+        font-size: 30px
     }
+
     .articleList-container {
         display:flex;
         width: 93%;
@@ -69,32 +75,17 @@
         /*height:100vh;*/
         /*box-sizing:border-box;*/
     }
-    .item {
+    .articleList-container  .item {
         width: 390px;
         margin: 20px;
-        box-shadow: 1px 1px 5px #d2d2d2;
+        border: 1px solid lightsteelblue;
         border-radius: 5px;
-        background-color: snow;
         /*flex-basis:50%;*/
         /*box-sizing:border-box;*/
     }
-    .item .imgDiv{
-        width: 391px;
-        height: 230px;
-        overflow: hidden;
+    .articleList-container .item .thumbnail {
+        width: 100%;
         border-radius: 5px 5px 0 0;
     }
-    .item .imgDiv .thumbnail{
-        width: 100%;
-        width: 100%;
-        object-fit: cover;
-    }
-    .item .content{
-
-    }
-    body{
-        background-color: #efefef;
-    }
-
 
 </style>

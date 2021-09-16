@@ -16,7 +16,6 @@ public class AuthService {
 	
 	@Transactional
 	public User 회원가입(User user) {
-
 		String encPassword = bCryptPasswordEncoder.encode(user.getPassword());
 		user.setPassword(encPassword);
 		user.setRole("ROLE_USER");
