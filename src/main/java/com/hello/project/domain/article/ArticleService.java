@@ -1,5 +1,6 @@
 package com.hello.project.domain.article;
 
+import com.hello.project.domain.comment.CommentRepository;
 import com.hello.project.domain.user.User;
 import com.hello.project.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +24,7 @@ public class ArticleService {
 
     private final ArticleRepository articleRepository;
     private final UserRepository userRepository;
+    private final CommentRepository commentRepository;
 
     @Value("${file.path}")
     private String uploadFolder;
@@ -63,12 +65,14 @@ public class ArticleService {
         articleEntity.setTitle(articleDto.getTitle());
         articleEntity.setContent(articleDto.getContent());
         articleEntity.setDiscription(articleDto.getDiscription());
+        articleEntity.setThumbnailUrl(articleDto.getThumbnail().getOriginalFilename());
         return articleEntity;
     }
 
     @Transactional
-    public void deleteArticle(Long id) {
-        articleRepository.deleteById(id);
+    public void deleteArticle(Long articleId) {
+        commentRepository.deleteByArticleId(articleId);
+        articleRepository.deleteById(articleId);
     }
 
 

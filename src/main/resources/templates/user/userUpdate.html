@@ -10,7 +10,7 @@
 
     <form class="form" id="userUpdateForm" th:onsubmit="userUpdate('[[${user.id}]]',event)">
     <div class="profile">
-        <img src="/thumbnail/suzi.jpg" style="width: 150px; height: 150px;border-radius: 70%">
+        <img th:src="|/profile/${user.profileImageUrl}|" style="width: 150px; height: 150px;border-radius: 70%">
         <input id="username" name="username" th:value="${user.username}" style="font-size: 25px; font-weight: bold;">
         <input id="blogIntro" name="blogIntro" th:value="${user.blogIntro}" style="font-size: 18px; font-weight: bold;">
         <input id="blogName" name="blogName" th:value="${user.blogName}" style="font-size: 25px; font-weight: bold;">
@@ -32,7 +32,7 @@
         flex-flow:column nowrap;
         justify-content: space-evenly;
         align-items: center;
-        background-color: aliceblue;
+        background-color: honeydew;
     }
 
 </style>

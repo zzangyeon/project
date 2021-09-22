@@ -1,12 +1,17 @@
+/**
+ 1. 유저 프로파일 페이지
+ (1) 유저 프로파일 페이지 구독하기, 구독취소
+ (2) 구독자 정보 모달 보기
+ (4) 유저 프로필 사진 변경
+ (5) 사용자 정보 메뉴 열기 닫기
+ (6) 사용자 정보(회원정보, 로그아웃, 닫기) 모달
+ (7) 사용자 프로파일 이미지 메뉴(사진업로드, 취소) 모달
+ (8) 구독자 정보 모달 닫기
+ */
+
+
 let commentPage =0;
-
-function updateId(id){
-    location.href = '/update?id='+ id;
-}
-
-function deleteId(id){
-    location.href = '/delete?id='+ id;
-}
+let principalId = $('#principalId').val();
 
 //댓글 작성
 function addComment(articleId) {
@@ -35,21 +40,23 @@ function addComment(articleId) {
         let comment = res.data;
         console.log(res.data.id);
         let content = `
-			  <div class="comment-item" id="comment-${comment.id}">
+			  <div class="comment-item" id="${comment.id}">
+			    <hr class="line">
                 <div class="profile">
                     <div class="imgDiv">
-                        <img class="img" src="/thumbnail/munzi2.jpg" >
+                        <img class="img" src="/profile/${comment.user.profileImageUrl}" >
                     </div>
                     <div class="usernameDate">
                         <span><b>${comment.user.username}</b></span>
                         <span>${comment.createdDate}</span>
-                    </div>
-                    <a href="#">삭제</a>
-                </div>
-                <p>${comment.content}</p>
-                <hr style="border:1px solid gainsboro;">
-            </div>
-				`;
+                    </div>`;
+        if(principalId == comment.user.id){
+         content += `<span onclick="deleteComment(${comment.id})">삭제</span>`
+        }
+        content += `</div>
+                <p class="c-content">${comment.content}</p>
+            </div>`;
+
         commentList.prepend(content);
 
     }).fail(error=>{
@@ -57,26 +64,29 @@ function addComment(articleId) {
         //alert(error.responseJSON.data.content);
     });
 
-    commentInput.val(""); //오류가 나도 비워 주려고 이곳에 놓음.
+    commentInput.val("");
 }
 
 function getCommentItem(comment) {
 
     let item = `
-        <div class="comment-item">
+        <div class="comment-item" id="${comment.id}">
             <div class="profile">
                 <div class="imgDiv">
-                    <img class="img" src="/thumbnail/munzi2.jpg">
+                    <img class="img" src="/profile/${comment.user.profileImageUrl}">
                 </div>
                 <div class="usernameDate">
                     <span><b>${comment.user.username}</b></span>
                     <span>${comment.createdDate}</span>
-                </div>
-                <a href="#">삭제</a>
-            </div>
-            <p>${comment.content}</p>
-            <hr style="border:1px solid gainsboro;">
-        </div>`
+                </div>`;
+
+    if(principalId == comment.user.id){
+      item += `<span onclick="deleteComment(${comment.id})">삭제</span>`;
+    }
+      item+=`</div>
+            <p class="c-content">${comment.content}</p>
+            <hr class="line">
+        </div>`;
 
     return item;
 }
@@ -100,6 +110,22 @@ function getComment(articleId) {
         alert("getComment Ajax Error")
     });
 }
+
+//댓글 삭제
+function deleteComment(commentId) {
+
+    $.ajax({
+        type:"delete",
+        url:'/api/comment/'+commentId,
+        dataType:"json"
+    }).done(res=>{
+        $(`#${commentId}`).remove();
+
+    }).fail(error=>{
+        alert("deleteComment Ajax Error")
+    });
+}
+
 
 
 

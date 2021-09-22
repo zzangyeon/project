@@ -10,15 +10,18 @@
 <body>
 
 <div class="update-container">
-    <form class="form" action="/update" method="post">
+    <form class="form" action="/update" method="post" enctype="multipart/form-data">
         <input type="hidden" name="id" th:value="${article.id}">
         <input class="title" type="text" name="title" th:value="${article.title}" placeholder="제목을 입력해주세요"/>
         <textarea class="textarea" placeholder="글을 작성해주세요!" th:text="${article.content}" name="content"></textarea>
-        <br>
-        <br>
+            <br>
+            <br>
         <input class="discription" type="text" name="discription" th:value="${article.discription}" placeholder="요약">
-        <br>
-        <br>
+            <br>
+            <br>
+        <input type="file" name="thumbnail" style="font-size: 30px">
+            <br>
+            <br>
         <button class="update">수정하기</button>
     </form>
         <button class="update" onclick="window.history.back()">취소하기</button>

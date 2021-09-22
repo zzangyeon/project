@@ -1,12 +1,8 @@
 let page = 0;
 
-function articleId(id){
-    location.href="/article/"+id;
-}
-
 function getArticleItem(article){
     let item = `
-            <div class="item" onclick="articleId(${article.id})">
+            <div class="item" onclick="location.href='/article/${article.id}'">
                 <input class="article-id" type="hidden" value="${article.id}" name="articleId" />                
                 <div class="imgDiv">
                     <img class="thumbnail" src="/thumbnail/${article.thumbnailUrl}" />

@@ -1,18 +1,10 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>home</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
-<body>
-    <div class="header" th:replace="fragment/header :: header1" ></div>
-    <div class="header" th:replace="fragment/header :: header2"></div>
+    <div class="header" th:replace="fragment/header :: header" ></div>
 
     <div class="articleList-container">
         <input type="hidden">
 
-        <div class="item" th:each="article : ${articles}" th:onclick="articleId('[[${article.id}]]')">
+        <div class="item" th:each="article : ${articles}" th:onclick="|location.href='/article/${article.id}'|">
             <input class="article-id" type="hidden" th:value="${article.id}" name="articleId" />
 
             <div class="imgDiv">
@@ -46,15 +38,7 @@
 <script src="/js/home.js"></script>
 
 <style>
-    .header{
-        display: flex;
-        flex-direction: row;
-        width: 90%;
-        margin: auto;
-        justify-content: space-between;
-        align-items: center;
-        /*border: 2px solid blueviolet;*/
-    }
+
     .button{
         font-size: 30px;
         height: 50px;

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<div class="modal-subscribe">
+    <div class="subscribeList-container">
+        <div class="item">
+            <div class="imgDiv">
+                <img class="profile" src="/profile/ddong.jpg">
+            </div>
+            <span class="username">HELLO</span>
+            <button class="btn">구독취소</button>
+        </div>
+        <hr class="line">
+        <div class="item">
+            <div class="imgDiv">
+                <img class="profile" src="/profile/ddong.jpg">
+            </div>
+            <span class="username">HELLO</span>
+            <button class="btn">구독취소</button>
+        </div>
+        <hr class="line">
+    </div>
+</div>
+
+</body>
+</html>
+
+<style>
+    .modal-subscribe {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .subscribeList-container{
+        width: 360px;
+        display: flex;
+        flex-flow: column nowrap;
+    }
+    .subscribeList-container .item{
+        width: 360px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+    .subscribeList-container .item .imgDiv{
+        width: 47px;
+        height: 47px;
+        border-radius: 70%;
+        overflow: hidden;
+        margin-right: -100px;
+    }
+    .subscribeList-container .item .imgDiv .profile{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .subscribeList-container .item .username{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .subscribeList-container .item .btn{
+        font-size: 15px;
+    }
+    .subscribeList-container .line{
+        width: 360px;
+        border: 1px solid #e4e7ea;
+    }
+
+</style>

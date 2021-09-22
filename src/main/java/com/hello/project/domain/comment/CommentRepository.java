@@ -10,5 +10,5 @@ import java.util.List;
 public interface CommentRepository extends JpaRepository<Comment, Long>{
 
     Slice<Comment> findAllByArticleId(Long articleId, Pageable pageable);
-
+    void deleteByArticleId(Long articleId);
 }

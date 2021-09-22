@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+    <div class="header" th:replace="fragment/header :: header" ></div>
+
+<span class="blogname" th:text="${user.blogName}" style="font-size: 25px; font-weight: bold;">블로그네임</span>
+<button onclick="location.href='/user/update'" style="font-size: 30px">회원 수정</button>
+<button class="button" th:onclick="subscribeModalOpen('[[${user.id}]]')">구독정보</button>
+<button class="button" th:unless="${principal.id eq user.id}"
+        th:onclick="subscribe('[[${principal.id}]]','[[${user.id}]]')">구독하기</button>
+
+    <div class="profile">
+        <img th:src="|/profile/${user.profileImageUrl}|" style="width: 150px; height: 150px;border-radius: 70%">
+        <span class="username" th:text="${user.username}" style="font-size: 35px; font-weight: bold;">유저네임</span>
+        <span class="blogintro" th:text="${user.blogIntro}" style="font-size: 20px;">블로그 소개</span>
+    </div>
+    <hr class="profile-underline">
+
+    <div class="articleList">
+        <div class="article" th:each="article : ${user.getArticles()}" th:onclick="|location.href='/article/${article.id}'|">
+            <div class="imgDiv">
+                <img class="thumbnail" th:src="|/thumbnail/${article.thumbnailUrl}|">
+            </div>
+            <p th:text="${article.title}">제목</p>
+            <p th:text="${article.discription}">요약</p>
+            <p th:text="${article.createdDate}">작성일</p>
+        </div>
+    </div>
+
+<!--=============구독 정보 모달=======================-->
+<div class="modal-subscribe">
+    <div class="subscribeList-container">
+        <div class="item">
+            <div class="imgDiv">
+                <img class="profile2" src="/profile/dong2.jpg">
+            </div>
+            <span class="username">HELLO</span>
+            <button class="btn">구독취소</button>
+        </div>
+        <hr class="line">
+
+        <div class="item">
+            <div class="imgDiv">
+                <img class="profile2" src="/profile/ddong.jpg">
+            </div>
+            <span class="username">HELLO</span>
+            <button class="btn">구독취소</button>
+        </div>
+        <hr class="line">
+    </div>
+</div>
+<!--=============구독 정보 모달=======================-->
+
+</body>
+</html>
+<script src="/js/user.js"></script>
+
+<style>
+    .profile{
+        display:flex;
+        width: 700px;
+        margin: auto;
+        margin-top: 30px;
+        margin-bottom: 30px;
+        flex-flow:row nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .profile-underline{
+        width: 700px;
+        margin-bottom: 70px;
+        border: 1px solid #e2e5e8
+    }
+    .articleList{
+        display:flex;
+        width: 700px;
+        margin: auto;
+        flex-flow:column nowrap;
+        align-items: center;
+    }
+    .article{
+        /*border: 2px solid darksalmon;*/
+        width: 700px;
+    }
+    .imgDiv{
+        width: 700px;
+        height: 400px;
+        overflow: hidden;
+    }
+    .thumbnail{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    /* 구독 모달 */
+
+     .modal-subscribe {
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         height: 100%;
+         background-color: rgba(0, 0, 0, 0.3);
+         display: none;
+         align-items: center;
+         justify-content: center;
+     }
+    .subscribeList-container{
+        width: 360px;
+        display: flex;
+        flex-flow: column nowrap;
+        background-color: ghostwhite;
+    }
+    .subscribeList-container .item{
+        width: 360px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 15px;
+    }
+    .subscribeList-container .item .imgDiv{
+        width: 47px;
+        height: 47px;
+        border-radius: 70%;
+        overflow: hidden;
+        background-color: lightsteelblue;
+    }
+    .subscribeList-container .item .imgDiv .profile2{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .subscribeList-container .item .username{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    .subscribeList-container .item .btn{
+        font-size: 15px;
+    }
+    .subscribeList-container .line{
+        width: 360px;
+        border: 1px solid #e4e7ea;
+    }
+
+</style>

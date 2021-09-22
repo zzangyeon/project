@@ -1,23 +1,14 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Article</title>
+    <div class="header" th:replace="fragment/header :: header" ></div>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="/css/article.css">
-
-</head>
-<body>
-    <button class="button" onclick="location.href='/logout'">로그아웃</button>
-    <button class="button" onclick="location.href='/'">홈으로</button>
+    <th:block th:if="${isLogin}"><input type="hidden" id="principalId" th:value="${principal.id}"></th:block>
 
     <div class="article-container">
 
         <h1 class="title" th:text="${article.title}"></h1>
 
-        <div>
-            <span th:text="${article.user.username}"></span>
+        <div class="writer">
+            <b><span th:text="${article.user.username}+'  '" th:onclick="|location.href='/blog/${article.user.id}'|"></span></b>
             <span th:text="${article.createdDate}"></span>
         </div>
 
@@ -30,8 +21,8 @@
         </div>
 
         <th:block th:if="${isLogin}">
-        <button class="button" th:if="${article.user.id eq principalId}" th:onclick="updateId('[[${article.id}]]')">글 수정</button>
-        <button class="button" th:if="${article.user.id eq principalId}" th:onclick="deleteId('[[${article.id}]]')">글 삭제</button>
+        <button class="button" th:if="${article.user.id eq principal.id}" th:onclick="|location.href='/update?id=${article.id}'|">글 수정</button>
+        <button class="button" th:if="${article.user.id eq principal.id}" th:onclick="|location.href='/delete?id=${article.id}'|">글 삭제</button>
         </th:block>
 
         <div style="height: 60px"></div>
@@ -46,20 +37,22 @@
         <div style="height: 40px"></div>
 
         <div class="comment-list-container">
-            <hr style="border:1px solid gainsboro;">
-            <div class="comment-item" th:each="comment : ${comments}">
+            <hr class="line">
+            <div class="comment-item" th:each="comment : ${comments}" th:id="${comment.id}">
                 <div class="profile">
                     <div class="imgDiv">
-                        <img class="img" src="/thumbnail/munzi2.jpg" >
+                        <img class="img" th:src="|/profile/${comment.user.profileImageUrl}|" >
                     </div>
                     <div class="usernameDate">
-                        <span th:text="${comment.user.username}"><b>hihi</b></span>
+                        <b><span th:text="${comment.user.username}">hihi</span></b>
                         <span th:text="${comment.createdDate}">2021-05-05</span>
                     </div>
-                    <a href="#" th:if="${principalId eq comment.user.id}">삭제</a>
+                    <th:block th:if="${isLogin}">
+                    <span th:onclick="deleteComment('[[${comment.id}]]')" th:if="${principal.id eq comment.user.id}">삭제</span>
+                    </th:block>
                 </div>
-                <p th:text="${comment.content}">첫 댓글 입니다.</p>
-                <hr style="border:1px solid gainsboro;">
+                <p class="c-content" th:text="${comment.content}">첫 댓글 입니다.</p>
+                <hr class="line">
             </div>
         </div>
 

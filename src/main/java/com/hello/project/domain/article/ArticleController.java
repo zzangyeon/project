@@ -32,7 +32,7 @@ public class ArticleController {
         model.addAttribute("isLogin",false);
         }else {
         model.addAttribute("isLogin",true);
-        model.addAttribute("user",principalDetails.getUser());
+        model.addAttribute("principal",principalDetails.getUser());
         }
         List<Article> articles = articleService.articleList(pageable);
         model.addAttribute("articles", articles);
@@ -54,7 +54,7 @@ public class ArticleController {
             model.addAttribute("isLogin", false);
         }else {
             model.addAttribute("isLogin", true);
-            model.addAttribute("principalId",principalDetails.getUser().getId());
+            model.addAttribute("principal",principalDetails.getUser());
         }
         Article article = articleService.getArticle(id);
         List<Comment> comments = commentService.getComment(id, pageable);
@@ -93,14 +93,16 @@ public class ArticleController {
     @PostMapping("/update")
     public String updateArticle(ArticleDto articleDto,Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
         System.out.println("==============post update controller==============");
+
         Article article = articleService.updateArticle(articleDto);
         model.addAttribute("article", article);
-        return "article";
+        Long id = article.getId();
+        return "redirect:/article/"+id;
     }
 
     @GetMapping("/delete")
     public String deleteArticle(Long id) {
-        System.out.println("========================delete");
+        System.out.println("====================delete controller=============");
         articleService.deleteArticle(id);
         return "redirect:/";
     }

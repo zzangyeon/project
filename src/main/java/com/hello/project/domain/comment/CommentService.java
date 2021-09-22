@@ -43,12 +43,15 @@ public class CommentService {
 		return commentRepository.findById(id).get();
 	}
 
-    //Tip 객체를 직접 만들어서 id값만 담아서 insert 할 수 있다.! 이렇게 하지 않으면 imagerepository.findById() 로 db접근해서 찾아와야한다!
-		//어차피 db에 들어가는 값은 id값이고, 우리가 comment에서 필요한것은 pk(id)이기 때문에 괜찮다!
-		//대신!!! return시 image객체와 user객체는 id값만 가지고 있는 빈 객체를 리턴받는다.
+	@Transactional
+	public void deleteComment(Long id) {
+		commentRepository.deleteById(id);
+	}
 
+//Tip 객체를 직접 만들어서 id값만 담아서 insert 할 수 있다.! 이렇게 하지 않으면 imagerepository.findById() 로 db접근해서 찾아와야한다!
+//어차피 db에 들어가는 값은 id값이고, 우리가 comment에서 필요한것은 pk(id)이기 때문에 괜찮다!
+//대신!!! return시 image객체와 user객체는 id값만 가지고 있는 빈 객체를 리턴받는다.
 
-//
 //	@Transactional
 //	public void 댓글삭제(int id) {
 //		try {//오류가 터지면 이렇게 try catch로 해준다!
@@ -57,4 +60,5 @@ public class CommentService {
 //			throw new CustomApiException(e.getMessage());
 //		}
 //	}
+
 }
