@@ -27,72 +27,96 @@ function userUpdate(id,event) {
 }
 
 // 구독블로그 모달창 띄우기
-function subscribeModalOpen(principalId) {
+function subscribeModalOpen(userId) {
     $(".modal-subscribe").css("display", "flex");
 
-    // $.ajax({
-    //     type:"get",
-    //     url: "/api/user/"+principalId+"/subscribe",
-    //     dataType:"json"
-    // }).done(res=>{
-    //     console.log(res.data);
-    //
-    //     res.data.forEach((u)=>{
-    //         let item = getSubscribeModalItem(u);
-    //         $("#subscribeModalList").append(item);
-    //     })
-    // }).fail(error=>{
-    //     console.log(error);
-    // });
+    $.ajax({
+        type:"get",
+        url: `/api/subscribe/${userId}`,
+        dataType: "json"
+    }).done(res=>{
+        console.log(res.data);
+
+        res.data.forEach((s)=>{
+            let item = getSubscribeModalItem(s);
+            $(".subscribeList-container").append(item);
+        })
+    }).fail(error=>{
+        alert("실패")
+    });
 }
 
-function getSubscribeModalItem(u) {
-    let item =
-        `<div class="subscribe__item" id="subscribeModalItem-${u.id}">
-		<div class="subscribe__img">
-			<img src="/upload/${u.profileImageUrl}" onerror="this.src='/images/person.jpeg'" />
-		</div>
-		<div class="subscribe__text">
-			<h2>${u.username}</h2>
-		</div>
-		<div class="subscribe__btn">`;
+function getSubscribeModalItem(s) {
+    let item = `
+    <div class="item">
+        <div class="imgDiv">
+            <img class="profile2" src="/profile/${s.profileImageUrl}">
+        </div>
+        <span class="username" onclick="location.href='/blog/${s.id}'">${s.username}</span>
+<!--        <button class="btn">구독취소</button>-->
+    </div>
+    <hr class="line">`
 
-    if(!u.equalUserState){//동일 유저가 아닐때 버튼이 만들어짐
-        if(u.subscribeState){//구독한 상태
-            item+=`<button class="cta blue" onclick="toggleSubscribe(${u.id},this)">구독취소</button>`;
-        }else{//구독 안 한 상태
-            item+=`<button class="cta" onclick="toggleSubscribe(${u.id},this)">구독하기</button>`;
-        }
-    }
-    item+=`
-		</div>
-	</div>`;
 
     return item;
 }
 
-function subscribe(fromId,toId) {
-
-    let data = {
-        fromId:fromId,
-        toId:toId
-    }
-
-    $.ajax({
-        type:"post",
-        url:'/api/subscribe',
-        data:data,
-        contentType:"application/x-www-form-urlencoded; charset=utf-8",
-    }).done(res=>{
-        if(res.code == 1){
-            alert("구독이 완료되었습니다.")
-        }
-
-    }).fail(error=>{
-        alert("구독에 실패하였습니다.")
-
-    });
-
-
-
+// 구독블로그 모달창 닫기
+function subscribeModalClose() {
+    $(".modal-subscribe").css("display", "none");
+    location.reload();
 }
+
+// 구독하기, 구독취소
+function toggleSubscribe(toUserId,obj) {
+    if ($(obj).text() === "구독취소") {
+
+        $.ajax({
+            type:"delete",
+            url: "/api/subscribe/"+toUserId,
+            dataType:"json"
+        }).done(res=>{
+            $(obj).text("구독하기");
+            $(obj).toggleClass("red");
+        }).fail(error=>{
+            console.log("구독취소 실패",error);
+        });
+
+    } else {
+
+        $.ajax({
+            type:"post",
+            url: "/api/subscribe/"+toUserId,
+            dataType:"json"
+        }).done(res=>{
+            $(obj).text("구독취소");
+            $(obj).toggleClass("red");
+        }).fail(error=>{
+            console.log("구독하기 실패",error);
+        });
+
+    }
+}
+
+// function subscribe(fromId,toId) {
+//
+//     let data = {
+//         fromId:fromId,
+//         toId:toId
+//     }
+//
+//     $.ajax({
+//         type:"post",
+//         url:'/api/subscribe',
+//         data:data,
+//         contentType:"application/x-www-form-urlencoded; charset=utf-8",
+//     }).done(res=>{
+//         if(res.code == 1){
+//             alert("구독이 완료되었습니다.")
+//         }
+//
+//     }).fail(error=>{
+//         alert("구독에 실패하였습니다.")
+//     });
+// }
+

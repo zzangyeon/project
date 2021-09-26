@@ -1,4 +1,4 @@
-package com.hello.project.domain.subscribe;
+package com.hello.project.domain.user;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,11 +9,10 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class SubscribeRespDto {
-	
-	private Long id;//toUserId
-	private String username;
-	private String profileImageUrl;
+public class UserBlogDto {
 
-	
+    private User user;
+    private boolean subscribeState;
+    private boolean pageOwnerState;
+
 }

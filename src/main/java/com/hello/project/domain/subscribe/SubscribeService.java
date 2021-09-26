@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @RequiredArgsConstructor
 @Service
 public class SubscribeService {
@@ -12,17 +14,27 @@ public class SubscribeService {
     private final SubscribeRepository subscribeRepository;
 
     @Transactional
-    public Subscribe saveSubscribe(SubscribeDto subscribeDto) {
+    public Subscribe saveSubscribe(Long fromUserId, Long toUserId) {
 
-        User fromUser = new User(subscribeDto.getFromId());
-        User toUser = new User(subscribeDto.getToId());
+        User fromUser = new User(fromUserId);
+        User toUser = new User(toUserId);
+
         Subscribe subscribe = new Subscribe();
-
         subscribe.setFromUser(fromUser);
         subscribe.setToUser(toUser);
 
         Subscribe subscribeEntity = subscribeRepository.save(subscribe);
 
         return subscribeEntity;
+    }
+
+    @Transactional
+    public void deleteSubscribe(Long fromUserId, Long toUserId) {
+        subscribeRepository.unSubscribe(fromUserId,toUserId);
+    }
+
+    @Transactional(readOnly = true)
+    public List<SubscribeRespDto> subscribeList(Long id) {
+        return subscribeRepository.subscribeList(id);
     }
 }

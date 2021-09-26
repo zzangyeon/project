@@ -1,5 +1,8 @@
 package com.hello.project;
 
+import com.hello.project.domain.subscribe.Subscribe;
+import com.hello.project.domain.subscribe.SubscribeRepository;
+import com.hello.project.domain.subscribe.SubscribeRespDto;
 import com.hello.project.domain.user.User;
 import com.hello.project.domain.user.UserRepository;
 import com.hello.project.domain.auth.SignupDto;
@@ -13,6 +16,8 @@ class ProjectApplicationTests {
 
 	@Autowired
 	UserRepository userRepository;
+	@Autowired
+	SubscribeRepository subscribeRepository;
 
 	@Test
 	void contextLoads() {
@@ -24,5 +29,13 @@ class ProjectApplicationTests {
 		User userEntity = userRepository.save(user);
 		System.out.println(userEntity);
 	}
+
+	@Test
+	void countSubscribeState(){
+
+		int state = subscribeRepository.subscribeState(6L,1L);
+		System.out.println("state = " + state);
+	}
+
 
 }

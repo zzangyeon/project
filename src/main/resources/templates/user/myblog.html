@@ -1,21 +1,24 @@
 <!DOCTYPE html>
     <div class="header" th:replace="fragment/header :: header" ></div>
 
-<span class="blogname" th:text="${user.blogName}" style="font-size: 25px; font-weight: bold;">블로그네임</span>
-<button onclick="location.href='/user/update'" style="font-size: 30px">회원 수정</button>
-<button class="button" th:onclick="subscribeModalOpen('[[${user.id}]]')">구독정보</button>
-<button class="button" th:unless="${principal.id eq user.id}"
-        th:onclick="subscribe('[[${principal.id}]]','[[${user.id}]]')">구독하기</button>
+<span class="blogname" th:text="${blogDto.user.blogName}" style="font-size: 25px; font-weight: bold;">블로그네임</span>
+<th:block th:if="${isLogin}">
+    <button class="button" th:onclick="subscribeModalOpen('[[${blogDto.user.id}]]')">구독정보</button>
+    <button class="subscribeBtn" th:if="${!blogDto.isPageOwnerState() and !blogDto.isSubscribeState()}"
+            th:onclick="toggleSubscribe('[[${blogDto.user.id}]]',this)">구독하기</button>
+    <button class="subscribeBtn red" th:if="${!blogDto.isPageOwnerState() and blogDto.isSubscribeState()}"
+            th:onclick="toggleSubscribe('[[${blogDto.user.id}]]',this)">구독취소</button>
+</th:block>
 
     <div class="profile">
-        <img th:src="|/profile/${user.profileImageUrl}|" style="width: 150px; height: 150px;border-radius: 70%">
-        <span class="username" th:text="${user.username}" style="font-size: 35px; font-weight: bold;">유저네임</span>
-        <span class="blogintro" th:text="${user.blogIntro}" style="font-size: 20px;">블로그 소개</span>
+        <img th:src="|/profile/${blogDto.user.profileImageUrl}|" style="width: 150px; height: 150px;border-radius: 70%">
+        <span class="username" th:text="${blogDto.user.username}" style="font-size: 35px; font-weight: bold;">유저네임</span>
+        <span class="blogintro" th:text="${blogDto.user.blogIntro}" style="font-size: 20px;">블로그 소개</span>
     </div>
     <hr class="profile-underline">
 
     <div class="articleList">
-        <div class="article" th:each="article : ${user.getArticles()}" th:onclick="|location.href='/article/${article.id}'|">
+        <div class="article" th:each="article : ${blogDto.user.getArticles()}" th:onclick="|location.href='/article/${article.id}'|">
             <div class="imgDiv">
                 <img class="thumbnail" th:src="|/thumbnail/${article.thumbnailUrl}|">
             </div>
@@ -25,35 +28,35 @@
         </div>
     </div>
 
-<!--=============구독 정보 모달=======================-->
+<!--=============구독 정보 모달 start=======================-->
 <div class="modal-subscribe">
     <div class="subscribeList-container">
-        <div class="item">
+        <span onclick="subscribeModalClose()" style="margin-left: 290px;margin-top: -7px">❌</span>
+       <!-- <div class="item">
             <div class="imgDiv">
                 <img class="profile2" src="/profile/dong2.jpg">
             </div>
             <span class="username">HELLO</span>
             <button class="btn">구독취소</button>
         </div>
-        <hr class="line">
-
-        <div class="item">
-            <div class="imgDiv">
-                <img class="profile2" src="/profile/ddong.jpg">
-            </div>
-            <span class="username">HELLO</span>
-            <button class="btn">구독취소</button>
-        </div>
-        <hr class="line">
+        <hr class="line">-->
     </div>
 </div>
-<!--=============구독 정보 모달=======================-->
+<!--=============구독 정보 모달 end=======================-->
 
 </body>
 </html>
 <script src="/js/user.js"></script>
 
 <style>
+    .subscribeBtn{
+        font-size: 30px;
+        background-color: cornflowerblue;
+    }
+    .red{
+        font-size: 30px;
+        background-color: red;
+    }
     .profile{
         display:flex;
         width: 700px;
@@ -92,26 +95,27 @@
     }
 
     /* 구독 모달 */
-
      .modal-subscribe {
          position: fixed;
          top: 0;
          left: 0;
          width: 100%;
          height: 100%;
-         background-color: rgba(0, 0, 0, 0.3);
+         background-color: rgba(0, 0, 0, 0.2);
          display: none;
          align-items: center;
          justify-content: center;
      }
     .subscribeList-container{
-        width: 360px;
+        width: 300px;
         display: flex;
+        padding: 30px;
+        border-radius: 8px;
         flex-flow: column nowrap;
         background-color: ghostwhite;
     }
     .subscribeList-container .item{
-        width: 360px;
+        width: 300px;
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -137,7 +141,7 @@
         font-size: 15px;
     }
     .subscribeList-container .line{
-        width: 360px;
+        width: 300px;
         border: 1px solid #e4e7ea;
     }
 

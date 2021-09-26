@@ -19,7 +19,8 @@
         <h1 onclick="location.href='/'">🎈짱연월드🎈</h1>
         <button class="button" th:if="${isLogin}" onclick="location.href='/write'">새 글 작성</button>
         <button class="button" th:if="${isLogin}" onclick="location.href='/logout'">로그아웃</button>
-        <button class="button" th:if="${isLogin}" onclick="location.href='/myblog'">내 블로그</button>
+        <button class="button" th:if="${isLogin}" th:onclick="|location.href='/blog/${principal.id}'|">내 블로그</button>
+        <button class="button" th:if="${isLogin}" onclick="location.href='/user/update'">회원 수정</button>
         <button class="button" th:unless="${isLogin}" onclick="location.href='/auth/signin'">로그인</button>
         <th:block th:if="${isLogin}">
             <h2 th:text="${principal.username}"></h2>

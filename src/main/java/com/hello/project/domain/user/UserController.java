@@ -13,25 +13,18 @@ public class UserController {
 
     private final UserService userService;
 
-    @GetMapping("/myblog")
-    public String  myblog(@AuthenticationPrincipal PrincipalDetails principalDetails, Model model) {
-        User user = userService.getUser(principalDetails.getUser().getId());
-        model.addAttribute("user",user);
-        model.addAttribute("isLogin", true);
-        model.addAttribute("principal",principalDetails.getUser());
-        return "user/myblog";
-    }
-
     @GetMapping("/blog/{id}")
     public String  blog(@AuthenticationPrincipal PrincipalDetails principalDetails,@PathVariable Long id, Model model) {
-        User user = userService.getUser(id);
-        model.addAttribute("user",user);
 
         if(principalDetails == null){
+            UserBlogDto blogDto = userService.getBlogUser(id);
             model.addAttribute("isLogin", false);
+            model.addAttribute("blogDto",blogDto);
         }else{
+            UserBlogDto blogDto = userService.getBlogDto(id, principalDetails.getUser().getId());
             model.addAttribute("isLogin", true);
             model.addAttribute("principal",principalDetails.getUser());
+            model.addAttribute("blogDto", blogDto);
         }
         return "user/myblog";
     }
@@ -42,7 +35,5 @@ public class UserController {
         model.addAttribute("user", user);
         return "user/userUpdate";
     }
-
-
 
 }
