@@ -3,12 +3,11 @@ package com.hello.project.domain.article;
 import com.hello.project.domain.comment.CommentRepository;
 import com.hello.project.domain.user.User;
 import com.hello.project.domain.user.UserRepository;
+import com.hello.project.handler.exception.CustomException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,7 +15,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -39,7 +37,9 @@ public class ArticleService {
 
     @Transactional(readOnly = true)
     public Article getArticle(Long id) {
-        return articleRepository.findById(id).get();
+        return articleRepository.findById(id).orElseThrow(() -> {
+            throw new CustomException("잘못된 페이지 접근입니다.");
+        });
     }
 
     @Transactional
@@ -54,8 +54,9 @@ public class ArticleService {
             e.printStackTrace();
         }
 
-        User userEntity = userRepository.findById(id).get();
-        Article article = articleDto.toEntity(userEntity,thumbnailFileName);
+        User user = new User(id);
+
+        Article article = articleDto.toEntity(user,thumbnailFileName);
         return articleRepository.save(article);
     }
 

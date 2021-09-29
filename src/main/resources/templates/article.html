@@ -44,7 +44,7 @@
                         <img class="img" th:src="|/profile/${comment.user.profileImageUrl}|" >
                     </div>
                     <div class="usernameDate">
-                        <b><span th:text="${comment.user.username}">hihi</span></b>
+                        <b><span th:text="${comment.user.username}" th:onclick="|location.href='/blog/${comment.user.id}'|">hihi</span></b>
                         <span th:text="${comment.createdDate}">2021-05-05</span>
                     </div>
                     <th:block th:if="${isLogin}">
