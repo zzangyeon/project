@@ -1,18 +1,20 @@
 package com.hello.project;
 
-import com.hello.project.domain.subscribe.Subscribe;
-import com.hello.project.domain.subscribe.SubscribeRepository;
-import com.hello.project.domain.subscribe.SubscribeRespDto;
-import com.hello.project.domain.user.User;
-import com.hello.project.domain.user.UserRepository;
-import com.hello.project.domain.auth.SignupDto;
+import com.hello.project.domain.article.ArticleDto;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-
 class ProjectApplicationTests {
-	
+
+    @Test
+    public void test() {
+
+        ArticleDto articleDto = new ArticleDto();
+        String title = articleDto.getTitle();
+        Assertions.assertThat(title).isEqualTo("hello");
+
+    }
 
 }

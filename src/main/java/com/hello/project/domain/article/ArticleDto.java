@@ -5,6 +5,7 @@ import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
@@ -13,6 +14,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
+@NoArgsConstructor
 public class ArticleDto {
 
     private Long id;
