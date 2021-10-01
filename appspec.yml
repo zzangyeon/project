@@ -9,7 +9,7 @@ permissions:
   - object: /
     pattern: "**"
     owner: ubuntu
-    group: ububtu
+    group: ubuntu
 
 hooks:
   ApplicationStart:
