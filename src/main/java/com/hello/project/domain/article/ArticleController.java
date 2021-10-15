@@ -5,7 +5,11 @@ import com.hello.project.domain.article.Article;
 import com.hello.project.domain.article.ArticleService;
 import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.comment.CommentService;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.slf4j.Marker;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;
@@ -16,18 +20,23 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
+@Slf4j
 @RequiredArgsConstructor
 @Controller
 public class ArticleController {
+
 
     private final ArticleService articleService;
     private final CommentService commentService;
 
     @GetMapping("/")
-    public String homeArticleList(Model model,@AuthenticationPrincipal PrincipalDetails principalDetails,
-                                  @PageableDefault(size=8,sort="id",direction = Sort.Direction.DESC) Pageable pageable) {
+    public String homeArticleList(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails,
+                                  @PageableDefault(size=8,sort="id",direction = Sort.Direction.DESC) Pageable pageable, ServletRequest request) {
+        log.info("article controller start");
         if(principalDetails == null){
         model.addAttribute("isLogin",false);
         }else {
@@ -72,11 +81,6 @@ public class ArticleController {
     @PostMapping("/write")
     public String  saveArticle(ArticleDto articleDto,@AuthenticationPrincipal PrincipalDetails principalDetails) {
 
-        if(articleDto.getThumbnail().isEmpty()) {
-            //throw new CustomValidationException("이미지가 첨부되지 않았습니다.",null);
-            System.out.println("=================썸네일이 첨부되지 않았습니다.=========");
-        }
-
         Article articleEntity = articleService.saveArticle(articleDto, principalDetails.getUser().getId());
         Long id = articleEntity.getId();
         return "redirect:/article/"+id;
@@ -84,7 +88,7 @@ public class ArticleController {
 
     @GetMapping("/update")
     public String updateArticleForm(@ModelAttribute ArticleDto articleDto,Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
-        System.out.println("==============get update controller==============");
+        log.info("update Article getMapping");
         Article article = articleService.getArticle(articleDto.getId());
         model.addAttribute("article", article);
         return "update";
@@ -92,7 +96,7 @@ public class ArticleController {
 
     @PostMapping("/update")
     public String updateArticle(ArticleDto articleDto,Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
-        System.out.println("==============post update controller==============");
+        log.info("update Article postMapping");
 
         Article article = articleService.updateArticle(articleDto);
         model.addAttribute("article", article);
@@ -102,7 +106,7 @@ public class ArticleController {
 
     @GetMapping("/delete")
     public String deleteArticle(Long id) {
-        System.out.println("====================delete controller=============");
+        log.info("delete article");
         articleService.deleteArticle(id);
         return "redirect:/";
     }

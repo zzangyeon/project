@@ -19,7 +19,8 @@
         <input class="discription" type="text" name="discription" th:value="${article.discription}" placeholder="요약">
             <br>
             <br>
-        <input type="file" name="thumbnail" style="font-size: 30px">
+        <span class="updateThumbnail" onclick="thumbnailUpdate()" >썸네일 수정</span>
+        <input class="thumbnailFile" type="file" name="thumbnail" style="font-size: 30px">
             <br>
             <br>
         <button class="update">수정하기</button>
@@ -29,8 +30,22 @@
 
 </body>
 </html>
+<script>
+    function thumbnailUpdate(){
+        $('.thumbnailFile').css('display','block');
+    }
+</script>
 
 <style>
+    .updateThumbnail{
+        background-color: aqua;
+        padding: 3px;
+    }
+
+    .thumbnailFile{
+        display: none;
+    }
+
     .update-container{
         display: flex;
         margin: auto;

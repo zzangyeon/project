@@ -1,4 +1,6 @@
 <!DOCTYPE html>
+<link rel="stylesheet" href="/css/article.css">
+
     <div class="header" th:replace="fragment/header :: header" ></div>
 
     <th:block th:if="${isLogin}"><input type="hidden" id="principalId" th:value="${principal.id}"></th:block>

@@ -16,7 +16,7 @@ import javax.validation.Valid;
 public class AuthController {
 	
 	private static final Logger log = LoggerFactory.getLogger(AuthController.class);
-	
+
 	private final AuthService authService;
 
 	//로그인
@@ -24,11 +24,11 @@ public class AuthController {
 	public String signInForm() {
 		return "auth/signin";
 	}
-	
+
 	//회원가입 폼
 	@GetMapping("/auth/signup")
 	public String signUpForm() { return "auth/signup"; }
-	
+
 	//회원가입 하기
 	@PostMapping("/auth/signup")//form으로 올때는 key=value 형태(x-www-form-urlencoded)방식으로 온다
 	public String signUp(@Valid SignupDto signupDto, BindingResult bindingResult) {
@@ -38,7 +38,6 @@ public class AuthController {
 			User userEntity = authService.회원가입(user);
 			System.out.println(userEntity);
 			return "auth/signin";
-
 	}
 	
 }

@@ -45,13 +45,19 @@ public class ArticleService {
     @Transactional
     public Article saveArticle(ArticleDto articleDto, Long id) {
 
+        String thumbnailFileName = "";
+
         //UUID.randomUUID() + "_" +   추가하기.
-        String thumbnailFileName = articleDto.getThumbnail().getOriginalFilename();
-        Path thumbnailFilePath = Paths.get(uploadFolder + thumbnailFileName);
-        try {
-            Files.write(thumbnailFilePath,articleDto.getThumbnail().getBytes());
-        } catch (Exception e) {
-            e.printStackTrace();
+        if (articleDto.getThumbnail().isEmpty()) {
+            thumbnailFileName = "123.jpg";
+        }else {
+            thumbnailFileName = articleDto.getThumbnail().getOriginalFilename();
+            Path thumbnailFilePath = Paths.get(uploadFolder + thumbnailFileName);
+            try {
+                Files.write(thumbnailFilePath, articleDto.getThumbnail().getBytes());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         User user = new User(id);
@@ -62,11 +68,15 @@ public class ArticleService {
 
     @Transactional
     public Article updateArticle(ArticleDto articleDto) {
+
         Article articleEntity = articleRepository.findById(articleDto.getId()).get();
+
+        if (!articleDto.getThumbnail().isEmpty()) {
+            articleEntity.setThumbnailUrl(articleDto.getThumbnail().getOriginalFilename());
+        }
         articleEntity.setTitle(articleDto.getTitle());
         articleEntity.setContent(articleDto.getContent());
         articleEntity.setDiscription(articleDto.getDiscription());
-        articleEntity.setThumbnailUrl(articleDto.getThumbnail().getOriginalFilename());
         return articleEntity;
     }
 

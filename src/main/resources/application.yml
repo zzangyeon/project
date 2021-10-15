@@ -18,10 +18,13 @@ spring:
     username: cos
     password: cos1234
 
+  session:
+    store-type: none
+
   jpa:
     open-in-view: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
       naming:
         physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
     show-sql: true
