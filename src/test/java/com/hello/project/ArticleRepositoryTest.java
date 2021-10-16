@@ -13,8 +13,8 @@ import org.springframework.transaction.annotation.Transactional;
 @DataJpaTest// Repository 들을 다 IOC에 등록해둠 (Extends(스프링)) 스프링환경이기때문
 public class ArticleRepositoryTest {
 
-    @Autowired
-    private ArticleRepository articleRepository;
+//    @Autowired
+//    private ArticleRepository articleRepository;
 
 
 }

@@ -23,14 +23,14 @@ import org.springframework.transaction.annotation.Transactional;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.MOCK)
 class ProjectApplicationTests {
 
-    @Autowired MockMvc mvc;
-
-
-    @Test
-    public void test() {
-        System.out.println("=====테스트===========");
-    }
-
+//    @Autowired MockMvc mvc;
+//
+//
+//    @Test
+//    public void test() {
+//        System.out.println("=====테스트===========");
+//    }
+//
 
 
 }

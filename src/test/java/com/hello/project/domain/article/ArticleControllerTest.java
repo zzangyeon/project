@@ -12,18 +12,5 @@ import static org.junit.jupiter.api.Assertions.*;
 @WebMvcTest//AutoconfigureMockMvc가 안에 있음.
 class ArticleControllerTest {
 
-        @Autowired
-        ArticleController articleController;
 
-        @Autowired
-        private MockMvc mvc;
-        @MockBean//IOC 컨테이너에 등록됨.
-        private ArticleService articleService;
-        @MockBean
-        private CommentService commentService;
-
-        @Test
-        public void saveTest() {
-            System.out.println("=======테스트 시작=========");
-        }
 }

@@ -17,11 +17,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 @ExtendWith(MockitoExtension.class)
 public class ArticleServiceTest {
 
-    @InjectMocks //ArticleService 객체가 만들어질때 ArticleServiceTest 파일에 @Mock로 등록된 모든 애들을 주입받는다.
-    private ArticleService articleService;
-
-    @Mock
-    private ArticleRepository articleRepository;
+//    @InjectMocks //ArticleService 객체가 만들어질때 ArticleServiceTest 파일에 @Mock로 등록된 모든 애들을 주입받는다.
+//    private ArticleService articleService;
+//
+//    @Mock
+//    private ArticleRepository articleRepository;
 
 
 

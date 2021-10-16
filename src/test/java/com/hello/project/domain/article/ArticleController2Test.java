@@ -9,10 +9,5 @@ import static org.junit.jupiter.api.Assertions.*;
 @WebMvcTest
 class ArticleController2Test {
 
-    @Test
-    public void helloTest() {
-        System.out.println("==========");
-
-    }
 
 }
