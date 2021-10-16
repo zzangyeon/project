@@ -14,9 +14,9 @@ spring:
 
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://localhost:3307/project?serverTimezone=Asia/Seoul
-    username: cos
-    password: cos1234
+    url: jdbc:mariadb://zzanglog.cwint2ymszc7.ap-northeast-2.rds.amazonaws.com:3306/zzanglog
+    username: zxkim2004
+    password: 7595021zx
 
   session:
     store-type: none

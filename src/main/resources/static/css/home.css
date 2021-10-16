@@ -1,11 +1,6 @@
-
-.button{
-    font-size: 30px;
-    height: 50px;
-}
 .articleList-container {
     display:flex;
-    width: 93%;
+    width: 89%;
     margin: auto;
     margin-top: 70px;
     flex-flow:row wrap;
@@ -15,7 +10,7 @@
     /*box-sizing:border-box;*/
 }
 .item {
-    width: 390px;
+    width: 370px;
     margin: 20px;
     box-shadow: 1px 1px 5px #d2d2d2;
     border-radius: 5px;
@@ -24,7 +19,7 @@
     /*box-sizing:border-box;*/
 }
 .item .imgDiv{
-    width: 391px;
+    width: 371px;
     height: 230px;
     overflow: hidden;
     border-radius: 5px 5px 0 0;

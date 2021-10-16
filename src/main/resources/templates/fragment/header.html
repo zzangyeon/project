@@ -15,7 +15,7 @@
         <input type="hidden" th:value="${principal.id}">
     </th:block>
     <div class="header">
-        <h1 onclick="location.href='/'">🎈짱연월드🎈</h1>
+        <h1 onclick="location.href='/'">🎈zzangLog🎈</h1>
         <button class="button" th:if="${isLogin}" onclick="location.href='/write'">새 글 작성</button>
         <button class="button" th:if="${isLogin}" onclick="location.href='/logout'">로그아웃</button>
         <button class="button" th:if="${isLogin}" th:onclick="|location.href='/blog/${principal.id}'|">내 블로그</button>

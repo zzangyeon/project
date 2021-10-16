@@ -23,15 +23,15 @@
         </div>
 
         <th:block th:if="${isLogin}">
-        <button class="button" th:if="${article.user.id eq principal.id}" th:onclick="|location.href='/update?id=${article.id}'|">글 수정</button>
-        <button class="button" th:if="${article.user.id eq principal.id}" th:onclick="|location.href='/delete?id=${article.id}'|">글 삭제</button>
+        <button class="update-btn" th:if="${article.user.id eq principal.id}" th:onclick="|location.href='/update?id=${article.id}'|">글 수정</button>
+        <button class="delete-btn" th:if="${article.user.id eq principal.id}" th:onclick="|location.href='/delete?id=${article.id}'|">글 삭제</button>
         </th:block>
 
         <div style="height: 60px"></div>
 
         <th:block th:if="${isLogin}">
         <div class="comment-input-container">
-            <textarea class="comment-input" placeholder="댓글을 작성하세요" style="width:100%;height: 2cm;font-size: 18px"></textarea>
+            <textarea class="comment-input" placeholder="댓글을 작성하세요"></textarea>
             <button class="button" th:onclick="addComment('[[${article.id}]]')">댓글 작성</button>
         </div>
         </th:block>

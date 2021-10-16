@@ -1,8 +1,22 @@
 .header{
     display: flex;
-    flex-direction: row;
-    width: 90%;
+    width: 88%;
     margin: auto;
-    justify-content: space-between;
     align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.button {
+	border-radius:5px;
+	cursor:pointer;
+	color:#505739;
+	font-size:24px;
+	border: 1px solid #8C8C8C;
+}
+.button:hover {
+	border-radius:5px;
+	color: white;
+	background-color:#6799FF;
+	border: 1px solid #6799FF;
 }

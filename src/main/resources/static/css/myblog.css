@@ -1,0 +1,144 @@
+.blogname{
+    font-size: 25px;
+    font-weight: bold;
+    margin-left:500px;
+    margin-top:50px;
+}
+
+.subscribe-info{
+    width: 200px;
+	border-radius:5px;
+	cursor:pointer;
+	color:#505739;
+	font-size:24px;
+	border: 1px solid #A6A6A6;
+	background-color:#FAECC5;
+	margin-top:50px;
+}
+.subscribe-info:hover {
+	border-radius:5px;
+	color: white;
+	background-color:#FFE08C;
+	border: 1px solid #FFE08C;
+}
+
+.subscribeBtn{
+    width: 200px;
+	border-radius:5px;
+	cursor:pointer;
+	color:#505739;
+	font-size:24px;
+	border: 1px solid #A6A6A6;
+	background-color:#D9E5FF;
+	margin-top:50px;
+}
+.subscribeBtn:hover {
+	border-radius:5px;
+	color: white;
+	background-color:#6799FF;
+	border: 1px solid #6799FF;
+}
+.red{
+    width: 200px;
+	border-radius:5px;
+	cursor:pointer;
+	color:#505739;
+	font-size:24px;
+	border: 1px solid #A6A6A6;
+	background-color:#FFD8D8;
+	margin-top:50px;
+}
+.red:hover {
+	border-radius:5px;
+	color: white;
+	background-color:#F15F5F;
+	border: 1px solid #F15F5F;
+}
+
+.profile{
+    display:flex;
+    width: 700px;
+    margin: auto;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-flow:row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.profile-underline{
+    width: 700px;
+    margin-bottom: 70px;
+    border: 1px solid #e2e5e8
+}
+.articleList{
+    display:flex;
+    width: 700px;
+    margin: auto;
+    flex-flow:column nowrap;
+    align-items: center;
+}
+.article{
+    /*border: 2px solid darksalmon;*/
+    width: 700px;
+}
+.imgDiv{
+    width: 700px;
+    height: 400px;
+    overflow: hidden;
+}
+.thumbnail{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* 구독 모달 */
+ .modal-subscribe {
+     position: fixed;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.2);
+     display: none;
+     align-items: center;
+     justify-content: center;
+ }
+.subscribeList-container{
+    width: 300px;
+    display: flex;
+    padding: 30px;
+    border-radius: 8px;
+    flex-flow: column nowrap;
+    background-color: ghostwhite;
+}
+.subscribeList-container .item{
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+}
+.subscribeList-container .item .imgDiv{
+    width: 47px;
+    height: 47px;
+    border-radius: 70%;
+    overflow: hidden;
+    background-color: lightsteelblue;
+}
+.subscribeList-container .item .imgDiv .profile2{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.subscribeList-container .item .username{
+    font-size: 24px;
+    font-weight: bold;
+}
+.subscribeList-container .item .btn{
+    font-size: 15px;
+}
+.subscribeList-container .line{
+    width: 300px;
+    border: 1px solid #e4e7ea;
+}
