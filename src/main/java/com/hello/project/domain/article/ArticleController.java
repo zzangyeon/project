@@ -111,4 +111,10 @@ public class ArticleController {
         return "redirect:/";
     }
 
+    @ResponseBody
+    @GetMapping("/test")
+    public String test() {
+        return "test";
+    }
+
 }

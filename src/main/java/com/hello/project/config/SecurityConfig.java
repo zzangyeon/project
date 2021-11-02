@@ -58,6 +58,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.defaultSuccessUrl("/");//로그인성공하면 여기로 가게 할거임
 
 
+//		http
+//				.httpBasic().disable()
+//				.csrf().disable()
+//				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+//				.and()
+//				.formLogin().disable()
+//				.authorizeRequests()
+//				.antMatchers("/admin/**").hasRole("ADMIN")
+//				.anyRequest().permitAll()
+//				.and()
+//				.addFilterBefore(new JwtAuthenticationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class);
+
 	}	
 
 }
