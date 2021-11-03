@@ -112,9 +112,15 @@ public class ArticleController {
     }
 
     @ResponseBody
-    @GetMapping("/test")
-    public String test() {
-        return "test";
+    @GetMapping("/test1")
+    public String test1() {
+        return "test1";
+    }
+
+    @ResponseBody
+    @GetMapping("/test2")
+    public String test2() {
+        return "test2";
     }
 
 }
