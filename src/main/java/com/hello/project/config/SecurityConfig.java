@@ -53,7 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.and()
 		.formLogin()//인증이 필요한 저 url(위로세번째 줄)로 접근하면 폼로그인페이지로 옮길건데
 		.loginPage("/auth/signin")//GET 그 페이지가 이거임
-		.loginProcessingUrl("/auth/signin")//POST로 요청오면 ->spring security가 로그인프로세스진행. 회원가입 컨트롤러는 만들었지만 로그인 컨트롤러는 시큐리티가 해줌!
+		.loginProcessingUrl("/login")//POST로 요청오면 ->spring security가 로그인프로세스진행. 회원가입 컨트롤러는 만들었지만 로그인 컨트롤러는 시큐리티가 해줌!
 		//spring security가 로그인 프로세스 진행시 userDetailsService를 실행.(principalDetailsService가 상속받아 @Service등록하여 pds가 로그인 진행)
 		.defaultSuccessUrl("/");//로그인성공하면 여기로 가게 할거임
 
