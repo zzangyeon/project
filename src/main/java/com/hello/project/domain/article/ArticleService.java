@@ -53,11 +53,11 @@ public class ArticleService {
         }else {
             thumbnailFileName = articleDto.getThumbnail().getOriginalFilename();
             Path thumbnailFilePath = Paths.get(uploadFolder + thumbnailFileName);
-            try {
-                Files.write(thumbnailFilePath, articleDto.getThumbnail().getBytes());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Files.write(thumbnailFilePath, articleDto.getThumbnail().getBytes());
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
         }
 
         User user = new User(id);
