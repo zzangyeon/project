@@ -21,5 +21,8 @@ public interface SubscribeRepository extends JpaRepository<Subscribe, Long> {
     @Modifying(clearAutomatically = true)
     @Query(value = "DELETE FROM Subscribe s WHERE s.fromUser.id = :fromId AND s.toUser.id = :toId")
     void unSubscribe(@Param("fromId") Long fromId, @Param("toId")Long toId);
+    
+    @Query(value = "SELECT COUNT(s) FROM Subscribe s WHERE a.fromUser.id = :fromId AND s.toUser.id = :toId")
+    int subscribes(@Param("fromId") Long fromId);
 
 }
