@@ -29,7 +29,6 @@ import java.util.List;
 @Controller
 public class ArticleController {
 
-
     private final ArticleService articleService;
     private final CommentService commentService;
 
@@ -112,15 +111,10 @@ public class ArticleController {
     }
 
     @ResponseBody
-    @GetMapping("/test1")
+    @GetMapping("/test3")
     public String test1() {
         return "test1";
     }
 
-    @ResponseBody
-    @GetMapping("/test2")
-    public String test2() {
-        return "test2";
-    }
 
 }

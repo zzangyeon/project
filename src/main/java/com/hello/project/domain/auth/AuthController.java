@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import javax.validation.Valid;
 
 @RequiredArgsConstructor//final 필드 DI할때 사용
-@Controller//1.loC등록, 2.파일을 리턴하는 컨트롤러
+@Controller
 public class AuthController {
 	
 	private static final Logger log = LoggerFactory.getLogger(AuthController.class);

@@ -6,6 +6,10 @@ import com.hello.project.domain.user.User;
 import com.hello.project.domain.user.UserRepository;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -24,9 +28,10 @@ import java.util.Date;
 
 //시큐리티의 BasicAuthentication filter는 권한 및 인증이 필요한 특정 주소를 요청했을 때 이 필터 탄다.
 //만약 권한 인증이 필요한 주소가 아니면 이 필터를 거치지 않는다.
+
 public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     public JwtAuthorizationFilter(AuthenticationManager authenticationManager, UserRepository userRepository) {
         super(authenticationManager);
@@ -36,9 +41,8 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
 
-
         String jwtHeader = request.getHeader("Authorization");
-        System.out.println("토큰이 와써염 : "+jwtHeader);
+        System.out.println("===== 토큰이 와써염 : "+jwtHeader);
 
         if (jwtHeader == null || !jwtHeader.startsWith("Bearer")) {
             chain.doFilter(request, response);

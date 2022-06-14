@@ -8,6 +8,7 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -26,11 +27,13 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
-//스프링 시큐리티에서 username어쩌구 필터가 있는데 원래 /login요청해서 username,password전송하면 이 필터가 동작을 함. 하지만 formLogin  disable했기 때문에 다시 등록해야댐.
+//스프링 시큐리티에서 username어쩌구 필터가 있는데 원래 /login요청해서 username,password전송하면
+// 이 필터가 동작을 함. 하지만 formLogin  disable했기 때문에 다시 등록해야댐.
 @RequiredArgsConstructor
-public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
+  public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilter {
 
     private final AuthenticationManager authenticationManager;
+
 
     //  /login요청을 하면 로그인 시도를 위해서 실행되는 함수
     @Override
@@ -38,7 +41,7 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         System.out.println("========Jwt 로그인 시도중===========");
 
         String username = "";
-        String password ="";
+        String password = "";
 
         // 1. username, password 받아서
         try {
@@ -60,10 +63,9 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             //2. authenticationManager로 로그인 시도를하면 PrincipaldetailsService 의 loadbyUsername()함수 실행됨
             Authentication authentication = authenticationManager.authenticate(authenticationToken);
             PrincipalDetails principalDetails = (PrincipalDetails) authentication.getPrincipal();
-            System.out.println(principalDetails.getUser().getUsername());//로그인이 되었단것.
 
             //3. return하면! authentication 객체가 session영역에 저장됨.
-            //return 이유는 권한관리를 security가 대신해주기 때문! ( 권한 관리를 위해 세션에 저장)
+            //return 이유는 권한관리를 security가 대신해주기 때문! ( 권한 관리를 위해 세션에 저장 )
             request.setAttribute("username",username);
             return authentication;
         } catch (IOException e) {
@@ -83,10 +85,10 @@ public class JwtAuthenticationFilter extends UsernamePasswordAuthenticationFilte
         //hs256방식 / 토큰만들기
         String jwtToken = Jwts.builder()
                 .setSubject("zzangyeontoken")
-                .setExpiration(new Date(System.currentTimeMillis()+(60000*10)))
                 .claim("id",principalDetails.getUser().getId())
                 .claim("username",principalDetails.getUser().getUsername())
-                .signWith(SignatureAlgorithm.HS256,"zz123456789012345678901234567890".getBytes())
+                .signWith(Keys.hmacShaKeyFor("zz123456789012345678901234567890".getBytes()), SignatureAlgorithm.HS256)
+                .setExpiration(new Date(System.currentTimeMillis()+(60000*10)))
                 .compact();
 
         response.addHeader("Authorization","Bearer " + jwtToken);
