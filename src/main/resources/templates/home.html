@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="/css/home.css">
 
     <div class="header" th:replace="fragment/header :: header" ></div>
@@ -10,7 +11,7 @@
             <input class="article-id" type="hidden" th:value="${article.id}" name="articleId" />
 
             <div class="imgDiv">
-                <img class="thumbnail" th:src="|/thumbnail/${article.thumbnailUrl}|"/>
+                <img class="thumbnail" th:src="|/thumbnail/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/basic.jpg'"/>
             </div>
 
             <div class="content">

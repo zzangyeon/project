@@ -1,4 +1,4 @@
-package com.hello.project.domain.auth;
+package com.hello.project.dto;
 
 import com.hello.project.domain.user.User;
 import lombok.AllArgsConstructor;

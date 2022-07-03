@@ -12,16 +12,17 @@
         <main class="loginMain">
            <!--회원가입섹션-->
             <section class="login">
-                <article class="login__form__container">
+                <article class="login_form_container">
                   
                    <!--회원가입 폼-->
-                    <div class="login__form">
+                    <div class="login_form">
                         <!--로고-->
-<!--                        <h1><img src="/images/logo.jpg" alt=""></h1>-->
+                    <!-- <h1><img src="/images/logo.jpg" alt=""></h1>-->
                          
                         <!--회원가입 인풋-->
-                        <form class="login__input" action="/auth/signup" method="post"> 
-                            <input type="text" name="username" placeholder="유저네임" required="required" maxlength="20"/>
+                        <form class="login_input" action="/auth/signup" method="post">
+                            <input type="text" class="username" name="username" placeholder="아이디" required="required" maxlength="20"/>
+                            <button onclick="usernameCheck(event)">중복 아이디 체크</button>
                             <input type="password" name="password" placeholder="패스워드" required="required" />
                             <input type="email" name="email" placeholder="이메일" required="required" />
                             <input type="text" name="name" placeholder="이름" required="required" />
@@ -41,5 +42,6 @@
         </main>
     </div>
 </body>
-
 </html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/js/signup.js"></script>

@@ -1,5 +1,6 @@
-package com.hello.project.domain.user;
+package com.hello.project.dto;
 
+import com.hello.project.domain.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

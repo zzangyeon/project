@@ -26,9 +26,9 @@ import java.util.stream.Collectors;
 public class TokenProvider implements InitializingBean {
 
     @Value("${jwt.secret}")
-    private final String secret;
+    private String secret;
     @Value("${jwt.token-valid-time}")
-    private final int tokenValidTime;
+    private int tokenValidTime;
 
     private Key key;
 
@@ -37,6 +37,7 @@ public class TokenProvider implements InitializingBean {
         this.key = Keys.hmacShaKeyFor(secret.getBytes());
     }
 
+    // jwt 생성 - 인증객체에서 이름, 권한 가져와서 토큰에 넣음.
     public String createToken(Authentication authentication) {
         String authorities = authentication.getAuthorities().stream()
                 .map(GrantedAuthority::getAuthority)
@@ -50,6 +51,7 @@ public class TokenProvider implements InitializingBean {
                 .compact();
     }
 
+    // usernamepassword 토큰(인증객체) 반환
     public Authentication getAuthentication(String token) {
         Claims claims = Jwts.parserBuilder()
                 .setSigningKey(key)
@@ -67,6 +69,7 @@ public class TokenProvider implements InitializingBean {
         return new UsernamePasswordAuthenticationToken(principal, token, authorities);
     }
 
+    // jwt 유효성 검사
     public boolean validateToken(String token) {
         try {
             Jwts.parserBuilder().setSigningKey(key).build().parseClaimsJws(token);

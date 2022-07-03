@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -46,22 +47,22 @@ public class ArticleService {
     public Article saveArticle(ArticleDto articleDto, Long id) {
 
         String thumbnailFileName = "";
+        MultipartFile thumbnail = articleDto.getThumbnail();
 
         //UUID.randomUUID() + "_" +   추가하기.
-        if (articleDto.getThumbnail().isEmpty()) {
+        if (thumbnail.isEmpty()) {
             thumbnailFileName = "123.jpg";
         }else {
-            thumbnailFileName = articleDto.getThumbnail().getOriginalFilename();
-            Path thumbnailFilePath = Paths.get(uploadFolder + thumbnailFileName);
-//            try {
-//                Files.write(thumbnailFilePath, articleDto.getThumbnail().getBytes());
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            thumbnailFileName = thumbnail.getOriginalFilename();
+            Path thumbnailFilePath = Paths.get(uploadFolder+thumbnailFileName);
+            try {
+                Files.write(thumbnailFilePath, thumbnail.getBytes());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         User user = new User(id);
-
         Article article = articleDto.toEntity(user,thumbnailFileName);
         return articleRepository.save(article);
     }
