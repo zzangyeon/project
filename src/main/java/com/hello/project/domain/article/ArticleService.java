@@ -10,11 +10,13 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +26,7 @@ public class ArticleService {
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
 
-    @Value("${file.path}")
+    @Value("${ck.path}")
     private String uploadFolder;
 
     @Transactional(readOnly = true)
@@ -46,22 +48,21 @@ public class ArticleService {
     public Article saveArticle(ArticleDto articleDto, Long id) {
 
         String thumbnailFileName = "";
+        MultipartFile thumbnail = articleDto.getThumbnail();
 
-        //UUID.randomUUID() + "_" +   추가하기.
-        if (articleDto.getThumbnail().isEmpty()) {
-            thumbnailFileName = "123.jpg";
+        if (thumbnail == null) {
+            thumbnailFileName = "basic.jpg";
         }else {
-            thumbnailFileName = articleDto.getThumbnail().getOriginalFilename();
-            Path thumbnailFilePath = Paths.get(uploadFolder + thumbnailFileName);
-//            try {
-//                Files.write(thumbnailFilePath, articleDto.getThumbnail().getBytes());
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
+            thumbnailFileName = UUID.randomUUID() + "_" + thumbnail.getOriginalFilename();
+            Path thumbnailFilePath = Paths.get(uploadFolder+thumbnailFileName);
+            try {
+                Files.write(thumbnailFilePath, thumbnail.getBytes());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
 
         User user = new User(id);
-
         Article article = articleDto.toEntity(user,thumbnailFileName);
         return articleRepository.save(article);
     }
@@ -76,7 +77,7 @@ public class ArticleService {
         }
         articleEntity.setTitle(articleDto.getTitle());
         articleEntity.setContent(articleDto.getContent());
-        articleEntity.setDiscription(articleDto.getDiscription());
+        articleEntity.setDescription(articleDto.getDescription());
         return articleEntity;
     }
 

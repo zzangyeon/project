@@ -56,6 +56,7 @@ function addComment(articleId) {
     commentInput.val("");
 }
 
+//댓글 가져오기
 function getCommentItem(comment) {
 
     let item = `
@@ -90,13 +91,12 @@ function getComment(articleId) {
         contentType:"application/x-www-form-urlencoded; charset=utf-8",
         dataType:"json"
     }).done(res=>{
-
         res.data.forEach((comment)=>{
             let commentItem = getCommentItem(comment);
             $('.comment-list-container').append(commentItem);
         })
     }).fail(error=>{
-        alert("getComment Ajax Error")
+        console.log("마지막 댓글 입니다.")
     });
 }
 

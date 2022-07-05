@@ -1,3 +1,4 @@
+// 내 블로그 정보 수정
 function userUpdate(id,event) {
 
     event.preventDefault();
@@ -26,26 +27,28 @@ function userUpdate(id,event) {
 
 }
 
-// 구독블로그 모달창 띄우기
+// 구독블로그 모달창 띄우기 -1
 function subscribeModalOpen(userId) {
-    $(".modal-subscribe").css("display", "flex");
 
     $.ajax({
         type:"get",
         url: `/api/subscribe/${userId}`,
         dataType: "json"
     }).done(res=>{
-        console.log(res.data);
+        let closeBtn = `<span onclick="subscribeModalClose()" style="margin-left: 290px;margin-top: -7px">❌</span>`
+        $(".subscribeList-container").append(closeBtn);
 
         res.data.forEach((s)=>{
             let item = getSubscribeModalItem(s);
             $(".subscribeList-container").append(item);
         })
+        $(".modal-subscribe").css("display", "flex");
+
     }).fail(error=>{
         alert("실패")
     });
 }
-
+// 구독블로그 모달창 띄우기 -2
 function getSubscribeModalItem(s) {
     let item = `
     <div class="item">
@@ -53,10 +56,10 @@ function getSubscribeModalItem(s) {
             <img class="profile2" src="/profile/${s.profileImageUrl}">
         </div>
         <span class="username" onclick="location.href='/blog/${s.id}'">${s.username}</span>
-<!--        <button class="btn">구독취소</button>-->
+        <!--<button class="btn">구독취소</button>-->
     </div>
-    <hr class="line">`
-
+    <hr class="line">
+    `
 
     return item;
 }
@@ -64,7 +67,7 @@ function getSubscribeModalItem(s) {
 // 구독블로그 모달창 닫기
 function subscribeModalClose() {
     $(".modal-subscribe").css("display", "none");
-    location.reload();
+    $(".subscribeList-container").empty();
 }
 
 // 구독하기, 구독취소

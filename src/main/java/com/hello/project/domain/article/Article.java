@@ -21,7 +21,7 @@ public class Article extends TimeEntity {
     private Long id;
     @Column(nullable = false)
     private String title;
-    private String discription;
+    private String description;
     private String content;
     private String thumbnailUrl;
 

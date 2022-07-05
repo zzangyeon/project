@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <link rel="stylesheet" href="/css/home.css">
 
     <div class="header" th:replace="fragment/header :: header" ></div>
@@ -10,7 +11,7 @@
             <input class="article-id" type="hidden" th:value="${article.id}" name="articleId" />
 
             <div class="imgDiv">
-                <img class="thumbnail" th:src="|/thumbnail/${article.thumbnailUrl}|"/>
+                <img class="thumbnail" th:src="|/edit/file2/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/basic.jpg'"/>
             </div>
 
             <div class="content">
@@ -18,8 +19,8 @@
                     <p th:text="${article.title}">제목</p>
                 </div>
 
-                <div class="discription">
-                    <p th:text="${article.discription}">요약</p>
+                <div class="description">
+                    <p th:text="${article.description}">요약</p>
                 </div>
 
                 <div class="createdDate">

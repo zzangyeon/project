@@ -19,7 +19,7 @@ public class ArticleDto {
 
     private Long id;
     private String title;
-    private String discription;
+    private String description;
     private String content;
     private MultipartFile thumbnail;
 //    private User user;
@@ -30,7 +30,7 @@ public class ArticleDto {
         return Article.builder()
                 .title(title)
                 .content(content)
-                .discription(discription)
+                .description(description)
                 .thumbnailUrl(thumbnailUrl)
                 .user(user)
                 .build();

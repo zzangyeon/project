@@ -1,6 +1,9 @@
-package com.hello.project.domain.user;
+package com.hello.project.controller;
 
 import com.hello.project.config.auth.PrincipalDetails;
+import com.hello.project.domain.user.User;
+import com.hello.project.dto.UserBlogDto;
+import com.hello.project.domain.user.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -14,7 +17,7 @@ public class UserController {
     private final UserService userService;
 
     @GetMapping("/blog/{id}")
-    public String  blog(@AuthenticationPrincipal PrincipalDetails principalDetails,@PathVariable Long id, Model model) {
+    public String myBlog(@AuthenticationPrincipal PrincipalDetails principalDetails,@PathVariable Long id, Model model) {
 
         if(principalDetails == null){
             UserBlogDto blogDto = userService.getBlogUser(id);

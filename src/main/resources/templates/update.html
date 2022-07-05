@@ -16,7 +16,7 @@
         <textarea class="textarea" placeholder="글을 작성해주세요!" th:text="${article.content}" name="content"></textarea>
             <br>
             <br>
-        <input class="discription" type="text" name="discription" th:value="${article.discription}" placeholder="요약">
+        <input class="description" type="text" name="description" th:value="${article.discription}" placeholder="요약">
             <br>
             <br>
         <span class="updateThumbnail" onclick="thumbnailUpdate()" >썸네일 수정</span>
@@ -69,7 +69,7 @@
         height: 400px;
         font-size: 30px
     }
-    .discription{
+    .description{
         height: 80px
     }
     .update{

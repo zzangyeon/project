@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Article</title>
+</head>
+<body>
+    <form style="display: flex; flex-direction: column; width: 100%" action="/write" method="post" enctype="multipart/form-data">
+        <input style="font-size: 40px; padding: 10px; margin: 20px 0 20px 0" type="text" name="title" id="title" placeholder="제목을 입력해주세요"/>
+        <p>< 대표 사진을 선택해주세요 ></p>
+        <input type="file" name="thumbnail" style="font-size: 30px">
+        <br>
+        <br>
+        <textarea name="content" id="editor"></textarea>
+        <br>
+        <button>저장</button>
+        <!--<button th:onclick="saveText('[[${userId}]]')">글저장</button>-->
+    </form>
+
+</body>
+</html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="/js/ckeditor/ckeditor.js"></script>
+<script>
+
+    let editor = CKEDITOR.replace('editor' , {filebrowserUploadUrl:'/edit/file'} );
+
+    <!--텍스트 저장-->
+    function saveText(userId){
+
+        let data = editor.getData();
+        let title = $('#title').val();
+
+        $.ajax({
+            type:"post",
+            url:'/edit/text/' + userId,
+            data: { 'title' : title, 'data' : data },
+            contentType:"application/json; charset=utf-8"
+        }).done(res=>{
+            alert("성공입니다!!");
+        }).fail(error=>{
+            alert("실패입니다~~");
+        });
+    }
+</script>
+

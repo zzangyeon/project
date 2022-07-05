@@ -5,14 +5,14 @@ function getArticleItem(article){
             <div class="item" onclick="location.href='/article/${article.id}'">
                 <input class="article-id" type="hidden" value="${article.id}" name="articleId" />                
                 <div class="imgDiv">
-                    <img class="thumbnail" src="/thumbnail/${article.thumbnailUrl}" />
+                    <img class="thumbnail" src="/edit/file2/${article.thumbnailUrl}" onerror="this.src = '/thumbnail/basic.jpg'"/>
                 </div>    
                 <div class="content">
                     <div class="article-title">
                     <p>${article.title}</p>
                     </div>
-                    <div class="discription">
-                        <p>${article.discription}</p>
+                    <div class="description">
+                        <p>${article.description}</p>
                     </div>
                     <div class="createdDate">
                         <p>${article.createdDate}</p>

@@ -16,12 +16,10 @@
         </div>
 
         <div>
-        <img class="thumbnail" style="max-width: 21cm" th:src="|/thumbnail/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/zz.jpg'">
+            <img class="thumbnail" style="max-width: 21cm" th:src="|/edit/file2/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/basic.jpg'">
         </div>
 
-        <div>
-            <p th:text="${article.content}"></p>
-        </div>
+        <div th:utext="${article.content}"></div>
 
         <th:block th:if="${isLogin}">
         <button class="update-btn" th:if="${article.user.id eq principal.id}" th:onclick="|location.href='/update?id=${article.id}'|">글 수정</button>

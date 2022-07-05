@@ -1,4 +1,4 @@
-package com.hello.project.config;
+package com.hello.project.domain.filter;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hello.project.config.auth.PrincipalDetails;

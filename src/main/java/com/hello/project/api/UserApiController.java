@@ -1,13 +1,22 @@
-package com.hello.project.domain.user;
+package com.hello.project.api;
 
 import com.hello.project.config.auth.PrincipalDetails;
+import com.hello.project.domain.user.User;
+import com.hello.project.domain.user.UserService;
+import com.hello.project.domain.user.UserUpdateDto;
 import com.hello.project.dto.CMRespDto;
+import io.swagger.annotations.*;
+import io.swagger.v3.oas.annotations.Hidden;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
+import springfox.documentation.annotations.ApiIgnore;
 
 import javax.validation.Valid;
 
@@ -17,18 +26,22 @@ public class UserApiController {
 
     private final UserService userService;
 
+    @ApiOperation(value = "User Update", notes = "유저 업데이트")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "ok~!"),
+            @ApiResponse(code = 404, message = "page not found~!")
+    })
+    @Hidden
     @PostMapping("/api/user/{id}")
     public CMRespDto<?> userUpdate(
-            @PathVariable Long id,
-            @Valid UserUpdateDto userUpdateDto,
-            BindingResult bindingResult,
-            @AuthenticationPrincipal PrincipalDetails principalDetails) {
+            @ApiParam(value = "userId", required = true, example = "1") @PathVariable Long id,
+            @ApiIgnore @Valid UserUpdateDto userUpdateDto, BindingResult bindingResult,
+            @ApiIgnore @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
         User userEntity = userService.userUpdate(id, userUpdateDto.toEntity());
         principalDetails.setUser(userEntity);
         return new CMRespDto<>(1, "회원정보 수정완료", userEntity);
     }
-
 
 //    @PutMapping("/api/user/{id}")
 //    public CMRespDto<?> update(

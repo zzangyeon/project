@@ -13,7 +13,17 @@ public class AuthService {
 	
 	private final UserRepository userRepository;
 	private final BCryptPasswordEncoder bCryptPasswordEncoder;
-	
+
+	@Transactional(readOnly = true)
+	public boolean usernameUniqueCheck(String username) {
+		User user = userRepository.findByUsername(username);
+		if (user == null) {
+			return true;
+		}else {
+			return false;
+		}
+	}
+
 	@Transactional
 	public User 회원가입(User user) {
 		String encPassword = bCryptPasswordEncoder.encode(user.getPassword());

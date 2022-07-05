@@ -10,7 +10,6 @@ import javax.servlet.FilterRegistration;
 //test
 public class FilterConfig {
 
-
     public FilterRegistrationBean<MyFilter1> filter1() {
         System.out.println("===========필터 등록==============");
         FilterRegistrationBean<MyFilter1> bean = new FilterRegistrationBean<>(new MyFilter1());

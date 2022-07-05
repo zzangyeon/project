@@ -1,7 +1,8 @@
-package com.hello.project.domain.article;
+package com.hello.project.controller;
 
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.article.Article;
+import com.hello.project.domain.article.ArticleDto;
 import com.hello.project.domain.article.ArticleService;
 import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.comment.CommentService;
@@ -35,7 +36,7 @@ public class ArticleController {
     @GetMapping("/")
     public String homeArticleList(Model model, @AuthenticationPrincipal PrincipalDetails principalDetails,
                                   @PageableDefault(size=8,sort="id",direction = Sort.Direction.DESC) Pageable pageable, ServletRequest request) {
-        log.info("article controller start");
+
         if(principalDetails == null){
         model.addAttribute("isLogin",false);
         }else {
@@ -73,21 +74,19 @@ public class ArticleController {
     }
 
     @GetMapping("/write")
-    public String writeArticle(@AuthenticationPrincipal PrincipalDetails principalDetails) {
+    public String articleWriteForm(@AuthenticationPrincipal PrincipalDetails principalDetails) {
         return "write";
     }
 
     @PostMapping("/write")
-    public String  saveArticle(ArticleDto articleDto,@AuthenticationPrincipal PrincipalDetails principalDetails) {
-
+    public String saveArticle(ArticleDto articleDto, @AuthenticationPrincipal PrincipalDetails principalDetails) {
         Article articleEntity = articleService.saveArticle(articleDto, principalDetails.getUser().getId());
         Long id = articleEntity.getId();
         return "redirect:/article/"+id;
     }
 
     @GetMapping("/update")
-    public String updateArticleForm(@ModelAttribute ArticleDto articleDto,Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
-        log.info("update Article getMapping");
+    public String articleUpdateForm(@ModelAttribute ArticleDto articleDto,Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
         Article article = articleService.getArticle(articleDto.getId());
         model.addAttribute("article", article);
         return "update";
@@ -95,8 +94,6 @@ public class ArticleController {
 
     @PostMapping("/update")
     public String updateArticle(ArticleDto articleDto,Model model,@AuthenticationPrincipal PrincipalDetails principalDetails) {
-        log.info("update Article postMapping");
-
         Article article = articleService.updateArticle(articleDto);
         model.addAttribute("article", article);
         Long id = article.getId();
@@ -105,15 +102,8 @@ public class ArticleController {
 
     @GetMapping("/delete")
     public String deleteArticle(Long id) {
-        log.info("delete article");
         articleService.deleteArticle(id);
         return "redirect:/";
-    }
-
-    @ResponseBody
-    @GetMapping("/test3")
-    public String test1() {
-        return "test1";
     }
 
 
