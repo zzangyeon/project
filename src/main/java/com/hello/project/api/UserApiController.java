@@ -6,13 +6,9 @@ import com.hello.project.domain.user.UserService;
 import com.hello.project.domain.user.UserUpdateDto;
 import com.hello.project.dto.CMRespDto;
 import io.swagger.annotations.*;
-import io.swagger.v3.oas.annotations.Hidden;
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.Parameter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,16 +22,15 @@ public class UserApiController {
 
     private final UserService userService;
 
-    @ApiOperation(value = "User Update", notes = "유저 업데이트")
+    @ApiOperation(value = "유저 업데이트", notes = "유저 업데이트")
     @ApiResponses({
             @ApiResponse(code = 200, message = "ok~!"),
             @ApiResponse(code = 404, message = "page not found~!")
     })
-    @Hidden
     @PostMapping("/api/user/{id}")
     public CMRespDto<?> userUpdate(
-            @ApiParam(value = "userId", required = true, example = "1") @PathVariable Long id,
-            @ApiIgnore @Valid UserUpdateDto userUpdateDto, BindingResult bindingResult,
+            @ApiParam(value = "userId") @PathVariable Long id,
+            @Valid UserUpdateDto userUpdateDto, BindingResult bindingResult,
             @ApiIgnore @AuthenticationPrincipal PrincipalDetails principalDetails) {
 
         User userEntity = userService.userUpdate(id, userUpdateDto.toEntity());

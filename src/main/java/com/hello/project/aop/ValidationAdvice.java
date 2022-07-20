@@ -17,6 +17,7 @@ import java.util.Map;
  logging
  validation check
  */
+
 @Component
 @Aspect
 @Slf4j
@@ -27,13 +28,13 @@ public class ValidationAdvice { //aop 공통적인 전처리를 함!
 
         String method = joinPoint.getSignature().getName();
         String fullClass = joinPoint.getSignature().getDeclaringTypeName();
-        log.info("====[ {} / {} ]====",fullClass,method);
+        String oneClass = fullClass.substring(fullClass.lastIndexOf(".")+1);
+        log.info("[ {} / {} ]",oneClass,method);
 
         Object[] args = joinPoint.getArgs();
         for(Object arg:args) {
             if(arg instanceof BindingResult) {
                 BindingResult bindingResult = (BindingResult)arg;//다운 캐스팅
-
                 if(bindingResult.hasErrors()) {
                     Map<String, String> errorMap = new HashMap<String, String>();
                     for(FieldError error:bindingResult.getFieldErrors()) {
@@ -43,9 +44,10 @@ public class ValidationAdvice { //aop 공통적인 전처리를 함!
                 }
             }
         }
+        return joinPoint.proceed();
         //proceedingJoinPoint - profile 함수의 모든 곳에 접근할 수 있는 변수
         //controller 내의 함수보다 먼저 실행됨
-        return joinPoint.proceed();//profile() 함수가 이때 실행됨.
+
     }
 
     @Around("execution(* com.hello.project.api.*Controller.*(..))")
@@ -59,7 +61,6 @@ public class ValidationAdvice { //aop 공통적인 전처리를 함!
         for(Object arg:args) {
             if(arg instanceof BindingResult) {
                 BindingResult bindingResult = (BindingResult)arg;
-
                 if(bindingResult.hasErrors()) {
                     Map<String, String> errorMap = new HashMap<String, String>();
                     for(FieldError error:bindingResult.getFieldErrors()) {

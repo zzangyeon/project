@@ -68,16 +68,16 @@ public class ArticleService {
     }
 
     @Transactional
-    public Article updateArticle(ArticleDto articleDto) {
+    public Article updateArticle(ArticleUpdteDto articleUpdateDto) {
 
-        Article articleEntity = articleRepository.findById(articleDto.getId()).get();
+        Article articleEntity = articleRepository.findById(articleUpdateDto.getId()).get();
 
-        if (!articleDto.getThumbnail().isEmpty()) {
-            articleEntity.setThumbnailUrl(articleDto.getThumbnail().getOriginalFilename());
+        if (!articleUpdateDto.getThumbnail().isEmpty()) {
+            articleEntity.setThumbnailUrl(articleUpdateDto.getThumbnail().getOriginalFilename());
         }
-        articleEntity.setTitle(articleDto.getTitle());
-        articleEntity.setContent(articleDto.getContent());
-        articleEntity.setDescription(articleDto.getDescription());
+        articleEntity.setTitle(articleUpdateDto.getTitle());
+        articleEntity.setContent(articleUpdateDto.getContent());
+        articleEntity.setDescription(articleUpdateDto.getDescription());
         return articleEntity;
     }
 

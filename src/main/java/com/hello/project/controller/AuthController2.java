@@ -4,6 +4,9 @@ import com.hello.project.config.jwt.JwtFilter;
 import com.hello.project.config.jwt.TokenProvider;
 import com.hello.project.dto.LoginDto;
 import com.hello.project.dto.TokenDto;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -24,9 +27,14 @@ import javax.validation.Valid;
 @RestController
 public class AuthController2 {
 
-    private final TokenProvider tokenProvider;
+  /*  private final TokenProvider tokenProvider;
     private final AuthenticationManagerBuilder authenticationManagerBuilder;
 
+    @ApiOperation(value = "Get signup form ", notes = "회원가입 폼 가져오기")
+    @ApiResponses({
+            @ApiResponse(code = 200, message = "ok"),
+            @ApiResponse(code = 404, message = "page not found")
+    })
     @PostMapping("/login2")
     public ResponseEntity<TokenDto> login2(@Valid LoginDto loginDto) {
 
@@ -45,8 +53,7 @@ public class AuthController2 {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.add(JwtFilter.AUTHORIZATION_HEADER, "Bearer " + jwt);
 
-
         return new ResponseEntity<>(new TokenDto(jwt), httpHeaders, HttpStatus.OK);
     }
-
+*/
 }

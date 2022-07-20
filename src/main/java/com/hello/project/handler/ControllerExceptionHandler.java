@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.Map;
 
-@RestControllerAdvice//Controller에서 예외 발생시 이 클래스가 낚아챈다.
+@RestControllerAdvice
 public class ControllerExceptionHandler {
 
 	 @ExceptionHandler(CustomValidationException.class)

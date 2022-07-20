@@ -18,7 +18,7 @@ import org.springframework.web.filter.CorsFilter;
 
 @RequiredArgsConstructor
 @EnableWebSecurity // 기본적인 web보안 활성화하겠다.
-@EnableGlobalMethodSecurity(prePostEnabled = true) // @PreAUthorize 를 메소드단위로 사용하기 위해 추가
+@EnableGlobalMethodSecurity(prePostEnabled = true) // @PreAuthorize를 메소드단위로 사용하기 위해 추가
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter{
 
@@ -26,9 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	public BCryptPasswordEncoder encoded() {//암호화 할 떄 사용함.
 		return new BCryptPasswordEncoder();
 	}
-
-	private final CorsFilter corsFilter;
-	private final UserRepository userRepository;
 	private final TokenProvider tokenProvider;
 	private final JwtAuthenticationEntryPoint jwtAuthenticationEntryPoint;
 	private final JwtAccessDeniedHandler jwtAccessDeniedHandler;
@@ -36,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 //		http
-//				//.httpBasic().disable()
+//				.httpBasic().disable()
 //				.csrf().disable()// csrf토큰 확인 안함.
 //				.exceptionHandling()
 //				.authenticationEntryPoint(jwtAuthenticationEntryPoint)
@@ -45,9 +42,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //				.and()
 //				.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 //
-////				.and()
-////				.formLogin()
-//				//.addFilter(corsFilter) //@CrossOrigin(인증없을떄 controller 메소드 위에 사용) , 이건 시큐리티 필터에 등록 인증O.
 //				.and()
 //				.authorizeRequests()
 //				.antMatchers("/api/**").authenticated()
@@ -56,12 +50,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 //
 //				.and()
 //				.apply(new JwtSecurityConfig(tokenProvider));
-//				//.addFilterBefore(new JwtAuthenticationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class)
-//				//.addFilterBefore(new JwtAuthorizationFilter(authenticationManager(),userRepository),BasicAuthenticationFilter.class);//Authentication manager 던져줘야댐.
+
+
+
+
+				//.addFilterBefore(new JwtAuthenticationFilter(authenticationManager()), UsernamePasswordAuthenticationFilter.class)
+				//.addFilterBefore(new JwtAuthorizationFilter(authenticationManager(),userRepository),BasicAuthenticationFilter.class);//Authentication manager 던져줘야댐.
 
 //	super.configure(http); 삭제 -> 기존 시큐리티가 가지고 있는 기능이 다 비활성화 됨.
-	//403코드 - 미승인 사용자.
-	http.csrf().disable();//csrf 토큰검사 비활성화
+	http.csrf().disable();//csrf 토큰검사 비활성화   	403코드 - 미승인 사용자.
 	http.authorizeRequests()
 		.antMatchers("/admin").authenticated()//인증이 필요한 주소
 		.anyRequest().permitAll()//그 외의 것들은 모두 허용

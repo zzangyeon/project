@@ -11,4 +11,10 @@ public class Script {
 		return sb.toString();
 	}
 
+
+
+	public int hello() {
+		return 1;
+	}
+
 }
