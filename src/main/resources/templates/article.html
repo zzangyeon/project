@@ -16,7 +16,7 @@
         </div>
 
         <div>
-            <img class="thumbnail" style="max-width: 21cm" th:src="|/edit/file2/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/basic.jpg'">
+            <img class="thumbnail" style="max-width: 21cm" th:src="${article.thumbnailUrl}" onerror="this.src = '/thumbnail/basic.jpg'">
         </div>
 
         <div th:utext="${article.content}"></div>

@@ -12,9 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,9 +23,13 @@ public class ArticleService {
     private final ArticleRepository articleRepository;
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
+    private final S3UploadService s3Upload;
 
     @Value("${ck.path}")
     private String uploadFolder;
+    @Value("${cloud.ncp.s3.url}")
+    private String s3Url;
+    String thumbnailUrl = "";
 
     @Transactional(readOnly = true)
     public List<Article> articleList(Pageable pageable) {
@@ -54,21 +56,16 @@ public class ArticleService {
             thumbnailFileName = "basic.jpg";
         }else {
             thumbnailFileName = UUID.randomUUID() + "_" + thumbnail.getOriginalFilename();
-            Path thumbnailFilePath = Paths.get(uploadFolder+thumbnailFileName);
-            try {
-                Files.write(thumbnailFilePath, thumbnail.getBytes());
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
         }
 
+        thumbnailUrl = s3Upload.upload(articleDto.getThumbnail());
         User user = new User(id);
-        Article article = articleDto.toEntity(user,thumbnailFileName);
+        Article article = articleDto.toEntity(user,thumbnailUrl);
         return articleRepository.save(article);
     }
 
     @Transactional
-    public Article updateArticle(ArticleUpdteDto articleUpdateDto) {
+    public Article updateArticle(ArticleUpdateDto articleUpdateDto) {
 
         Article articleEntity = articleRepository.findById(articleUpdateDto.getId()).get();
 

@@ -4,7 +4,7 @@ import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.article.Article;
 import com.hello.project.domain.article.ArticleDto;
 import com.hello.project.domain.article.ArticleService;
-import com.hello.project.domain.article.ArticleUpdteDto;
+import com.hello.project.domain.article.ArticleUpdateDto;
 import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.comment.CommentService;
 import io.swagger.annotations.ApiOperation;
@@ -93,7 +93,7 @@ public class ArticleController {
 
     @ApiOperation(value = "글 수정", notes = "글 수정하기")
     @PostMapping("/update")
-    public String updateArticle(@Valid ArticleUpdteDto articleUpdateDto, BindingResult bindingResult, Model model,
+    public String updateArticle(@Valid ArticleUpdateDto articleUpdateDto, BindingResult bindingResult, Model model,
                                 @ApiIgnore @AuthenticationPrincipal PrincipalDetails principalDetails) {
         System.out.println("==="+ articleUpdateDto);
         Article article = articleService.updateArticle(articleUpdateDto);

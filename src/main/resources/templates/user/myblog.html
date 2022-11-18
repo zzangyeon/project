@@ -22,7 +22,7 @@
     <div class="articleList">
         <div class="article" th:each="article : ${blogDto.user.getArticles()}" th:onclick="|location.href='/article/${article.id}'|">
             <div class="imgDiv">
-                <img class="thumbnail" th:src="|/edit/file2/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/basic.jpg'">
+                <img class="thumbnail" th:src="${article.thumbnailUrl}" onerror="this.src = '/thumbnail/basic.jpg'">
             </div>
             <p th:text="${article.title}">제목</p>
             <p th:text="${article.description}">요약</p>

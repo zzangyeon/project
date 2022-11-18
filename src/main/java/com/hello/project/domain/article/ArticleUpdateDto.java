@@ -11,7 +11,7 @@ import javax.validation.constraints.NotBlank;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class ArticleUpdteDto {
+public class ArticleUpdateDto {
 
     private Long id;
     @NotBlank

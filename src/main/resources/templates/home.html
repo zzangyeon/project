@@ -11,7 +11,7 @@
             <input class="article-id" type="hidden" th:value="${article.id}" name="articleId" />
 
             <div class="imgDiv">
-                <img class="thumbnail" th:src="|/edit/file2/${article.thumbnailUrl}|" onerror="this.src = '/thumbnail/basic.jpg'"/>
+                <img class="thumbnail" th:src="${article.thumbnailUrl}" onerror="this.src = '/thumbnail/basic.jpg'"/>
             </div>
 
             <div class="content">

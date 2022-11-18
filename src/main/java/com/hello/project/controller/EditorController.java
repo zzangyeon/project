@@ -2,12 +2,10 @@ package com.hello.project.controller;
 
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.article.Article;
-import com.hello.project.domain.article.ArticleDto;
 import com.hello.project.domain.article.ArticleRepository;
+import com.hello.project.domain.article.S3UploadService;
 import com.hello.project.domain.user.User;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,15 +15,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
 import springfox.documentation.annotations.ApiIgnore;
 
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
 import java.net.URLDecoder;
-import java.nio.file.Paths;
 import java.util.UUID;
 
 @Slf4j
@@ -33,6 +28,8 @@ import java.util.UUID;
 @Controller
 public class EditorController {
 
+    @Autowired
+    private S3UploadService s3Upload;
     @Autowired
     private ArticleRepository articleRepository;
 
@@ -62,6 +59,15 @@ public class EditorController {
     @ApiOperation(value = "에디터 사진 저장", notes = "에디터 사진 저장하기")
     @ResponseBody
     @PostMapping("/edit/file")
+    public String imageUpload3(HttpServletResponse response, @RequestParam MultipartFile upload) throws Exception {
+        String fileUrl = s3Upload.upload(upload);
+        response.setContentType("application/json;charset=utf-8");
+        return "{\"filename\" : \"hello\", \"uploaded\" : 1, \"url\":\"" + fileUrl + "\"}";
+    }
+
+    /*@ApiOperation(value = "에디터 사진 저장", notes = "에디터 사진 저장하기")
+    @ResponseBody
+    @PostMapping("/edit/file333")
     public String imageUpload2(HttpServletResponse response, @RequestParam MultipartFile upload) throws Exception {
         //파일
         byte[] bytes = upload.getBytes();
@@ -89,9 +95,9 @@ public class EditorController {
             e.printStackTrace();
         }
         return null;
-    }
+    }*/
 
-    @ApiOperation(value = "사진 가져오기", notes = "사진 가져오기")
+    /*@ApiOperation(value = "사진 가져오기", notes = "사진 가져오기")
     @GetMapping("/edit/file2/{fileName}")
     public void ckSubmit2(@PathVariable String fileName, HttpServletResponse response) throws IOException {
 
@@ -118,86 +124,7 @@ public class EditorController {
             bis.close();
             out.close();
         }
-    }
-
-    /*@PostMapping("/edit/file")
-    public void imageUpload(HttpServletRequest request, HttpServletResponse response,
-                            MultipartHttpServletRequest multiFile,
-                            @RequestParam MultipartFile upload) throws Exception {
-
-        UUID uid = UUID.randomUUID();
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("application/json;charset=utf-8");
-        //String callback = request.getParameter("CKEditorFuncNum");
-
-        //파일
-        byte[] bytes = upload.getBytes();
-        //파일 이름
-        String fileName = uid + "_" + upload.getOriginalFilename();
-        //폴더 경로
-        File folder = new File(CK_PATH);
-        //파일 업로드 경로
-        String ckUploadPath = CK_PATH + fileName;
-        //파일 요청 경로
-        String fileUrl = "/edit/file2/" + fileName;
-
-        try (OutputStream out = new FileOutputStream(new File(ckUploadPath));
-             PrintWriter printWriter = response.getWriter();) {
-            //디렉토리 유무
-            if (!folder.exists()) {
-                folder.mkdirs();
-            }
-            //파일 저장
-            out.write(bytes);
-            out.flush();
-
-            // 업로드시 메시지 출력
-            printWriter.println("{\"filename\" : \"" + fileName + "\", \"uploaded\" : 1, \"url\":\"" + fileUrl + "\"}");
-            printWriter.flush();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    @GetMapping("/edit/file2")
-    public void ckSubmit(HttpServletResponse response) throws IOException {
-
-        String sDirPath = CK_PATH + "f8983012-e791-447b-bce2-fed9009e5199_sql.png";
-        File imgFile = new File(sDirPath);
-
-        //사진 이미지 찾지 못하는 경우 예외처리로 빈 이미지 파일을 설정한다.
-        if (imgFile.isFile()) {
-            byte[] buf = new byte[1024];
-            int readByteLen = 0;
-            int length = 0;
-            byte[] imgBuf = null;
-
-            FileInputStream fileInputStream = new FileInputStream(imgFile);
-            ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-            ServletOutputStream out = response.getOutputStream();
-            BufferedInputStream bis = new BufferedInputStream(fileInputStream);
-            try {
-                //저장소에서 파일 읽어오기 & 이미지 응답 값에 넣기
-                while ((readByteLen = bis.read(buf)) != -1) {
-                    out.write(buf, 0, readByteLen);
-                }
-                out.flush();
-                //응답 값으로 이미지 넘겨주기
-//                imgBuf = outputStream.toByteArray();
-//                length = imgBuf.length;
-//                out.write(imgBuf, 0, length);
-//                out.flush();
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
     }*/
-
-
-
-
 
 
 }
