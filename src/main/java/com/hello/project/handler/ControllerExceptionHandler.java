@@ -29,7 +29,7 @@ public class ControllerExceptionHandler {
 	@ExceptionHandler(CustomValidationApiException.class)
 	public ResponseEntity<CMRespDto<?>> vallidationApiException(CustomValidationApiException e) {
 		return new ResponseEntity<>(new CMRespDto<>(-1,e.getMessage(),null), HttpStatus.BAD_REQUEST);
-		//http상태코드와 보낼메세지를 함께 보낼 수 있다. Responseentity
+		//http상태코드와 보낼메세지를 함께 보낼 수 있다. ResponseEntity
 	}
 
 	@ExceptionHandler(CustomException.class)
