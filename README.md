@@ -1,3 +1,7 @@
+# [ zzangLog ] 프로젝트
+
+[GitHub - zzangyeon/zzangLog: zzangLog 프로젝트](https://github.com/zzangyeon/zzangLog)
+
 # 1. 개요 및 주제
 
 [**zzangLog]**는 **블로그계의 SNS**를 꿈꾸며 시작한 프로젝트입니다.
@@ -34,13 +38,14 @@
 
 # 3. ERD
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d3cfda22-269d-4690-b1db-d26a9ed2cab9/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled.png)
 
 ---
 
 # 4. 핵심 기능
 
 - 자세한 내용을 보시려면 ▶버튼을 펼쳐주세요!
+
 - 토글 모두 열기
 
 - Mac =  cmd + option + t 
@@ -50,14 +55,14 @@ Window =  ctrl + alt + t
 
 - 모든 글이 모여있는 메인 페이지
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d5d4179e-da54-4802-b5e1-e0116389c385/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%201.png)
     
 
 ### 📃 글 작성
 
 - 글 작성
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/69687f0e-8865-4e1d-9db4-38a7f8b8db21/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%202.png)
     
     웹 텍스트 에디터 **ckeditor** 사용
     
@@ -69,7 +74,7 @@ Window =  ctrl + alt + t
     2. 4개의 최신 댓글을 기본으로 보여준다.
     더보기 버튼 클릭시 4개씩 하단에 추가되어 보여준다.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/44fde3e8-a182-4b8f-89b9-41d1e2a550c9/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%203.png)
     
 
 ### 💖 구독
@@ -79,9 +84,9 @@ Window =  ctrl + alt + t
     2. 구독 정보를 통해 구독한 블로그로 이동 가능
     3. 다른 사용자의 구독 정보 확인 가능
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/757b32ce-0285-4dbf-909e-56a5935d5cee/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%204.png)
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/94e00865-a5cf-4d22-8b46-8bcecda187e5/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%205.png)
     
 
 ### 🧐 내 블로그
@@ -90,13 +95,13 @@ Window =  ctrl + alt + t
     1. 상단에 블로그 이름, 소개, 아이디, 구독 정보 표시
     2. 하단에 내가 작성한 글 리스트 보기
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c90ad875-1807-4f19-b89d-6374cd4fb279/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%206.png)
     
 - 내 정보 수정
     
     아이디, 블로그 이름, 블로그 소개 수정 가능
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/ab44d837-9b60-46ee-931f-2839759833af/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%207.png)
     
 
 ### 👩‍🦰 사용자 인증 (회원가입 및 로그인)
@@ -120,27 +125,27 @@ session은 서버 또는 DB에 저장해야 하기 때문에 서버 확장시 �
     - Spring security  - 각종 **보안 체인과 권한** 기능 사용
     - JWT - **인증** 기능 수행
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/dd110ff2-0f29-4b06-b716-32ac4301484b/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%208.png)
 
 - Security Config 시큐리티 환경설정
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8432384a-fcf9-4d2d-9b23-f0aa067c3164/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%209.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d101ba6f-0dce-4fe9-aa6b-548006bb4927/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2010.png)
 
 - JWT생성
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9d0fd9de-6932-4a37-ac67-dbdffd08456a/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2011.png)
 
 - usernamePassword 토큰(인증객체) 반환
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5ed9e12c-e213-4aa2-a5f4-12d701d1d59e/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2012.png)
 
 - JWT 유효성 검사
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e793e16d-1f48-4c96-8483-12026031cadb/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2013.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/04c1a8bb-3d8c-44a4-ad3f-ff56cdce10b4/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2014.png)
 
 - JwtFilter - jwt 토큰 유효성 검사 및 SecurityContext에 Authentication객체 저장.
 
@@ -160,11 +165,11 @@ session은 서버 또는 DB에 저장해야 하기 때문에 서버 확장시 �
 
 모든 예외는 **<ControllerExceptionHandler>**에서 받아 처리한다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/9f8c058f-5161-4afe-af8e-bc7fee6fe842/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2015.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b9fd8554-b014-4767-bf89-df7979c65214/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2016.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/f676c9cb-df8e-40cd-8580-31abad3a6fd7/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2017.png)
 
 Controller는 알람을 띄우고 이전 페이지로 돌아가는  script 코드를 응답한다.
 
@@ -180,7 +185,7 @@ AOP**를 사용해 **기본적인 로깅**과 ****요청 **파라미터 유효�
 
 (2) 파라미터 유효성 검사 실패시 BindingResult의 fieldError를 errorMap에 저장후  <CustomValidationException>에 담아 던져준다. 그 후 <ControllerExceptionHandler>에서 처리한다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a671a0ef-33ee-46fc-b45e-225d869fa061/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2018.png)
 
 ### 3) 이미지 로컬 컴퓨터에 저장 → 스토리지 서버 도입
 
@@ -191,7 +196,7 @@ AOP**를 사용해 **기본적인 로깅**과 ****요청 **파라미터 유효�
 
 </aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2a8f3c31-43d8-4614-9ced-4f8bde221b2f/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2019.png)
 
 <aside>
 💡 **<Version 2>** - NCP의 **Object Storage(스토리지 서버)에 이미지 저장**
@@ -199,7 +204,7 @@ AWS의 S3 API와 호환되어 S3 클라이언트 사용.
 
 </aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e10f9eb8-68a7-4bee-bf4e-c8b07a3e836c/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2020.png)
 
 ### 4) 글 작성 및  이미지 업로드 → CKEditor(웹 텍스트 에디터)
 
@@ -210,7 +215,7 @@ AWS의 S3 API와 호환되어 S3 클라이언트 사용.
 
 </aside>
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e312dd40-9a98-4968-9673-60f4e6ecf2b6/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2021.png)
 
 <aside>
 💡 **<Version 2>** - **ckeditor(텍스트 에디터)** 추가 
@@ -242,9 +247,9 @@ let editor = CKEDITOR.replace('editor' , {filebrowserUploadUrl:'/edit/file'} );
     }
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c2a9b870-a1bc-403f-9e3a-736678e0c9c4/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2022.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/b4204912-a7b6-489b-b68f-7cfff63de6f8/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2023.png)
 
 ### 5) 데이터 전달시 Entity 그대로 사용 → 상황에 맞는 DTO 사용
 
@@ -261,7 +266,7 @@ let editor = CKEDITOR.replace('editor' , {filebrowserUploadUrl:'/edit/file'} );
 <aside>
 ❗ **클라우드 서버의 메모리 부족으로 인한 빌드 실패** - 1GB의 작은 램
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5ee5e8dd-f27e-4f08-8f78-ef5147fa599b/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2024.png)
 
 </aside>
 
@@ -271,7 +276,7 @@ let editor = CKEDITOR.replace('editor' , {filebrowserUploadUrl:'/edit/file'} );
 지속적인 빌드를 해야하는 **개발 환경에서 유용한 데몬**은 **CI/CD 환경에서는** 필요치 않고 오히려 **초반 빌드시 메모리를 더 소비함**.
 - gradle.properties의 **데몬 stop으로** 설정하여 **자동 실행 중지**.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5136a671-1836-4ee8-8500-1f20124aeba4/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2025.png)
     
 
 ### 해결 <2>
@@ -301,7 +306,7 @@ spring:
 
 - 버전 문제이기 때문에 Spring 2.5 이하 버전을 이용하거나 Swagger 2.9 이하 버전을 사용하면 된다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/4010af5a-8973-4cf1-a2dc-b2abe94e3722/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2026.png)
 
 ### 3) Spring Security 디버깅 - filter chain
 
@@ -312,7 +317,7 @@ spring:
 
 - 인증 필터 동작 과정 **디버깅**
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/be376555-0d41-44a2-9c66-f9ade356fb71/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2027.png)
     
 
 ---
@@ -320,16 +325,16 @@ spring:
 - formLogin()시 <UsernamePasswordAuthenticationFilter> 작동
 - formLogin()기능 없애고 <JwtFilter>로 인증 기능 대체시 **<PoviderManager>의 authenticate() 메서드가 인증 과정 진행**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/755c40e3-7125-43b1-920b-ca943214b7bf/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2028.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/8ef663f8-b496-4a10-b970-f618f2b50396/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2029.png)
 
 ---
 
 - 실질적 인증 객체인<DaoAuthenticationProvider>의 여러 메소드 중 createSuccessAuthentication() 내부에서 {UsernamePasswordAuthenticationToken()} 의 (isAuthenticated = true) 값을 기본으로 갖는 생성자로 재 생성한 후 반환한다
 ⇒ 결과적으로 **인증된 사용자**로서 **SecurityContext에 Authentication 객체가 담김**
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/e29f8746-ebdf-499f-ac27-4f4b68a93191/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2030.png)
 
 ### 4) NCP(클라우드) SSH 접속 인증 이슈
 
@@ -354,7 +359,7 @@ spring:
 - 권한 문제가 가장 흔한 적용 실패 원인이다. 그래서 클라이언트의 .ssh 폴더와 id_rsa에 대한 권한을 현재 계정만, 그리고 읽기 및 실행 권한을 주었고, 서버의 .ssh 폴더와 authorized_keys에는 각 700 600 권한을 주었다. 하지만 여전히 증상은 같았다.
 - public key를 옮기는 과정에서 문제가 발생했을 가능성이 있어서 다시 옮겨 넣었고 정상 작동했다. **결국 엔터 하나를 넣지 않은 것이 문제가 됐다**. -vvv 옵션을 붙여 인증 성공 **로그를 살펴보면** 이전 실패의 경우, 빨간 상자 속 인증 성공 로그가 발생하지 않았다는 걸 알 수 있다.
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/c586cad0-20da-49ed-807c-61d3a53b5d57/Untitled.png)
+![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2031.png)
 
 ### 5) 로컬 컴퓨터(Window) 에서 클라우드 서버(Linux)로 DB 백업 후 복구
 
@@ -405,11 +410,11 @@ spring:
     [root@zzanglog ~]# service mysql restart
     ```
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0e24b363-ab72-4529-8ca2-b46b2d836768/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2032.png)
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/d1579ee4-82f5-4926-941f-58654dbe275c/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2033.png)
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/878f653c-b2ce-4654-9ac5-cf4fe9894eca/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2034.png)
     
     캐릭터 셋이 잘 변경되었고 한글은 깨짐 없이 나오게 됐다.
     
@@ -426,7 +431,7 @@ spring:
 **객체에 대한 퍼블릭 엑세스 권한은 콘솔에서 하나하나 직접 설정해주는 방법 밖에 없었다.**
 - 그래서 **S3 api를 이용해 권한 설정하는 방법을 AWS 공식 문서에서 찾아보아도** 정확한 방법이 **나와있지 않았고**, (IDE를 이용해) **ACL(오브젝트 접근권한리스트) 설정 메서드인 setObjectAcl()의 마지막 파라미터가 ACL관련 설정임을 찾았고**, 관련 키워드를 통해 **IDE에서 검색되는 파라미터를 적용시켜 보면서 마침내  [ CannedAccessControlList.PublicRead ] 를 발견**했다.
     
-    ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/52301b2d-b13c-4bc6-9893-7715b98873bb/Untitled.png)
+    ![Untitled](%5B%20zzangLog%20%5D%20%E1%84%91%E1%85%B3%E1%84%85%E1%85%A9%E1%84%8C%E1%85%A6%E1%86%A8%E1%84%90%E1%85%B3%200a05ed93cdd049cfa12584b3a29a9697/Untitled%2035.png)
     
     접근 권한은 잘 적용되었다.
     
@@ -483,3 +488,5 @@ zzangLog는 혼자의 힘으로 처음부터 끝까지 만들어본 첫 프로�
 
 앞으로 성장해 나갈 수 있는 부분이 무궁무진하기 때문에 기대가 된다.
 다음 프로젝트는 기발한 아이디어로 많은 사람들이 재밌게 사용할 수 있는서비스를 만들어 볼 것이다.
+
+---
