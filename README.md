@@ -99,4 +99,4 @@
 
 
 더 자세한 내용은
-### https://aboard-impala-0af.notion.site/zzangLog-0a05ed93cdd049cfa12584b3a29a9697
+### https://zzangyeon.notion.site/zzangLog-0a05ed93cdd049cfa12584b3a29a9697
