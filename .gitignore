@@ -39,3 +39,5 @@ out/
 application-oauth.properties
 application.yml
 application-real.yml
+
+deploy.sh
