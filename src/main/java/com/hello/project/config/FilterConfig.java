@@ -1,11 +1,7 @@
 package com.hello.project.config;
 
-import com.hello.project.domain.filter.MyFilter1;
+import com.hello.project.config.filter.MyFilter1;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
-import javax.servlet.FilterRegistration;
 
 //test
 public class FilterConfig {

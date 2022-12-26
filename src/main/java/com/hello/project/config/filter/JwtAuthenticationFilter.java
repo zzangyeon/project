@@ -1,14 +1,10 @@
-package com.hello.project.domain.filter;
+package com.hello.project.config.filter;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hello.project.config.auth.PrincipalDetails;
-import com.hello.project.domain.user.User;
-import com.hello.project.domain.user.UserRepository;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -17,15 +13,11 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 
 //스프링 시큐리티에서 username어쩌구 필터가 있는데 원래 /login요청해서 username,password전송하면
 // 이 필터가 동작을 함. 하지만 formLogin  disable했기 때문에 다시 등록해야댐.

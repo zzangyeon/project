@@ -1,5 +1,6 @@
-package com.hello.project.domain.comment;
+package com.hello.project.repository;
 
+import com.hello.project.domain.comment.Comment;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.Sort;

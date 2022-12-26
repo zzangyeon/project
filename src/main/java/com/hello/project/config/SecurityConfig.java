@@ -2,9 +2,7 @@ package com.hello.project.config;
 
 import com.hello.project.config.jwt.JwtAccessDeniedHandler;
 import com.hello.project.config.jwt.JwtAuthenticationEntryPoint;
-import com.hello.project.config.jwt.JwtSecurityConfig;
 import com.hello.project.config.jwt.TokenProvider;
-import com.hello.project.domain.user.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,9 +10,7 @@ import org.springframework.security.config.annotation.method.configuration.Enabl
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.filter.CorsFilter;
 
 @RequiredArgsConstructor
 @EnableWebSecurity // 기본적인 web보안 활성화하겠다.

@@ -3,10 +3,10 @@ package com.hello.project.controller;
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.article.Article;
 import com.hello.project.domain.article.ArticleDto;
-import com.hello.project.domain.article.ArticleService;
+import com.hello.project.service.ArticleService;
 import com.hello.project.domain.article.ArticleUpdateDto;
 import com.hello.project.domain.comment.Comment;
-import com.hello.project.domain.comment.CommentService;
+import com.hello.project.service.CommentService;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -25,8 +25,8 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Slf4j
-@RequiredArgsConstructor
 @Controller
+@RequiredArgsConstructor
 public class ArticleController {
     private final ArticleService articleService;
     private final CommentService commentService;

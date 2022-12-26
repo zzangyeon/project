@@ -1,4 +1,4 @@
-package com.hello.project.domain.filter;
+package com.hello.project.config.filter;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

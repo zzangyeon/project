@@ -1,7 +1,7 @@
 package com.hello.project.config.auth;
 
 import com.hello.project.domain.user.User;
-import com.hello.project.domain.user.UserRepository;
+import com.hello.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;

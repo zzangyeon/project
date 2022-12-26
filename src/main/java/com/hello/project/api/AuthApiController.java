@@ -1,8 +1,7 @@
 package com.hello.project.api;
 
-import com.hello.project.domain.auth.AuthService;
+import com.hello.project.service.AuthService;
 import io.swagger.annotations.*;
-import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

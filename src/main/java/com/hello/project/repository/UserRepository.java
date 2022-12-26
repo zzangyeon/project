@@ -1,4 +1,4 @@
-package com.hello.project.domain.user;
+package com.hello.project.repository;
 
 import com.hello.project.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;

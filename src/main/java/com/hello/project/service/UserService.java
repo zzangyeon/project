@@ -1,7 +1,9 @@
-package com.hello.project.domain.user;
+package com.hello.project.service;
 
-import com.hello.project.domain.subscribe.SubscribeRepository;
-import com.hello.project.dto.UserBlogDto;
+import com.hello.project.domain.user.User;
+import com.hello.project.repository.SubscribeRepository;
+import com.hello.project.domain.user.UserBlogDto;
+import com.hello.project.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

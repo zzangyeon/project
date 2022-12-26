@@ -3,7 +3,7 @@ package com.hello.project.api;
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.comment.CommentDto;
-import com.hello.project.domain.comment.CommentService;
+import com.hello.project.service.CommentService;
 import com.hello.project.dto.CMRespDto;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;

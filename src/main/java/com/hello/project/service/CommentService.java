@@ -1,8 +1,10 @@
-package com.hello.project.domain.comment;
+package com.hello.project.service;
 
 import com.hello.project.domain.article.Article;
+import com.hello.project.domain.comment.Comment;
 import com.hello.project.domain.user.User;
-import com.hello.project.domain.user.UserRepository;
+import com.hello.project.repository.UserRepository;
+import com.hello.project.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;

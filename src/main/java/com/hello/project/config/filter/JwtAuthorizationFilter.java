@@ -1,30 +1,21 @@
-package com.hello.project.domain.filter;
+package com.hello.project.config.filter;
 
 
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.user.User;
-import com.hello.project.domain.user.UserRepository;
+import com.hello.project.repository.UserRepository;
 import io.jsonwebtoken.*;
-import io.jsonwebtoken.security.Keys;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.scheduling.support.SimpleTriggerContext;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
-import javax.crypto.spec.SecretKeySpec;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Date;
 
 //시큐리티의 BasicAuthentication filter는 권한 및 인증이 필요한 특정 주소를 요청했을 때 이 필터 탄다.
 //만약 권한 인증이 필요한 주소가 아니면 이 필터를 거치지 않는다.

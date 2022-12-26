@@ -1,4 +1,4 @@
-package com.hello.project.dto;
+package com.hello.project.domain.user;
 
 import com.hello.project.domain.user.User;
 import lombok.AllArgsConstructor;

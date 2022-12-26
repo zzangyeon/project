@@ -1,6 +1,9 @@
-package com.hello.project.domain.subscribe;
+package com.hello.project.service;
 
+import com.hello.project.domain.subscribe.Subscribe;
+import com.hello.project.domain.subscribe.SubscribeRespDto;
 import com.hello.project.domain.user.User;
+import com.hello.project.repository.SubscribeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

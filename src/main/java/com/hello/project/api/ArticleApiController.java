@@ -2,7 +2,7 @@ package com.hello.project.api;
 
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.article.Article;
-import com.hello.project.domain.article.ArticleService;
+import com.hello.project.service.ArticleService;
 import io.swagger.annotations.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;

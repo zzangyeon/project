@@ -2,20 +2,20 @@ package com.hello.project.controller;
 
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.user.User;
-import com.hello.project.dto.UserBlogDto;
-import com.hello.project.domain.user.UserService;
+import com.hello.project.domain.user.UserBlogDto;
+import com.hello.project.service.UserService;
 import io.swagger.annotations.ApiOperation;
-import io.swagger.annotations.ApiResponse;
-import io.swagger.annotations.ApiResponses;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import springfox.documentation.annotations.ApiIgnore;
 
-@RequiredArgsConstructor
+@Slf4j
 @Controller
+@RequiredArgsConstructor
 public class UserController {
 
     private final UserService userService;

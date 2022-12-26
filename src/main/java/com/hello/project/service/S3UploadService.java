@@ -1,4 +1,4 @@
-package com.hello.project.domain.article;
+package com.hello.project.service;
 
 import com.amazonaws.SdkClientException;
 import com.amazonaws.services.s3.AmazonS3;
@@ -12,8 +12,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.UUID;
 
-@RequiredArgsConstructor
 @Service
+@RequiredArgsConstructor
 public class S3UploadService {
 
     @Value("${cloud.ncp.s3.bucket}")

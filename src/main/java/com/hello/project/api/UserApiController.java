@@ -2,7 +2,7 @@ package com.hello.project.api;
 
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.user.User;
-import com.hello.project.domain.user.UserService;
+import com.hello.project.service.UserService;
 import com.hello.project.domain.user.UserUpdateDto;
 import com.hello.project.dto.CMRespDto;
 import io.swagger.annotations.*;

@@ -1,9 +1,11 @@
-package com.hello.project.domain.article;
+package com.hello.project.service;
 
-import com.hello.project.domain.comment.CommentRepository;
+import com.hello.project.domain.article.*;
+import com.hello.project.repository.CommentRepository;
 import com.hello.project.domain.user.User;
-import com.hello.project.domain.user.UserRepository;
+import com.hello.project.repository.UserRepository;
 import com.hello.project.handler.exception.CustomException;
+import com.hello.project.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
@@ -12,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.UUID;
 

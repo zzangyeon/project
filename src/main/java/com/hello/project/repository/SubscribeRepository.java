@@ -1,5 +1,7 @@
-package com.hello.project.domain.subscribe;
+package com.hello.project.repository;
 
+import com.hello.project.domain.subscribe.Subscribe;
+import com.hello.project.domain.subscribe.SubscribeRespDto;
 import com.hello.project.domain.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;

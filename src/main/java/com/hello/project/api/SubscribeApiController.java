@@ -3,7 +3,7 @@ package com.hello.project.api;
 import com.hello.project.config.auth.PrincipalDetails;
 import com.hello.project.domain.subscribe.Subscribe;
 import com.hello.project.domain.subscribe.SubscribeRespDto;
-import com.hello.project.domain.subscribe.SubscribeService;
+import com.hello.project.service.SubscribeService;
 import com.hello.project.dto.CMRespDto;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;

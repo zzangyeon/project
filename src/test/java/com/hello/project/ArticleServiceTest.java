@@ -1,12 +1,7 @@
 package com.hello.project;
 
-import com.hello.project.domain.article.ArticleRepository;
-import com.hello.project.domain.article.ArticleService;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 /*
  단위테스트 -  Service 관련된 애들만 메모리에 띄우면 됨

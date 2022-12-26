@@ -1,4 +1,4 @@
-package com.hello.project.dto;
+package com.hello.project.domain.test;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
